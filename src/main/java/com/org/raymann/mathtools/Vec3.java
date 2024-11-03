@@ -52,4 +52,20 @@ public class Vec3 {
         Float l = length();
         return new Vec3(x/l, y/l, z/l);
     }
+
+    public Vec3 plus(Vec3 v) {
+        return new Vec3(x + v.x(), y + v.y(), z + v.z());
+    }
+
+    public Vec3 times(Vec3 v) {
+        return new Vec3(x * v.x(), y * v.y(), z * v.z());
+    }
+
+    public Vec3 over(Vec3 v) {
+        return new Vec3(x/v.x(), y/v.y(), z/v.z());
+    }
+
+    public Float dot(Vec3 v) {
+        return x * v.x() + y * v.y() + z * v.z();
+    }
 }

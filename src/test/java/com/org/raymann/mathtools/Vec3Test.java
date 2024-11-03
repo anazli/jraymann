@@ -59,4 +59,34 @@ class Vec3Test {
         v = v.normalVector();
         assertEquals(v.length(), 1.f);
     }
+
+    @Test
+    public void giveTwoVectorsWhenAddedThenResultedVectorIsCorrect() {
+        v.setAll(5.2f);
+        Vec3 u = new Vec3(3.14159f, -45.9f, 200.5346f);
+        Vec3 w = v.plus(u);
+        assertEquals(w.x(), 8.34159f);
+        assertEquals(w.y(), -40.7f);
+        assertEquals(w.z(), 205.7346f);
+    }
+
+    @Test
+    public void giveTwoVectorsWhenMultipliedThenResultedVectorIsCorrect() {
+        v.setAll(9.325f);
+        Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
+        Vec3 w = v.times(u);
+        assertEquals(w.x(), 85.78999f);
+        assertEquals(w.y(), -139.875f);
+        assertEquals(w.z(), 69.9375f);
+    }
+
+    @Test
+    public void giveTwoVectorsWhenDividedThenResultedVectorIsCorrect() {
+        v.setAll(9.325f);
+        Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
+        Vec3 w = v.over(u);
+        assertEquals(w.x(), 1.013587f);
+        assertEquals(w.y(), -0.62166667f);
+        assertEquals(w.z(), 1.2433333f);
+    }
 }
