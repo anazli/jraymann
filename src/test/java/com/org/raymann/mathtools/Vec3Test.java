@@ -61,7 +61,7 @@ class Vec3Test {
     }
 
     @Test
-    public void giveTwoVectorsWhenAddedThenResultedVectorIsCorrect() {
+    public void givenTwoVectorsWhenAddedThenResultedVectorIsCorrect() {
         v.setAll(5.2f);
         Vec3 u = new Vec3(3.14159f, -45.9f, 200.5346f);
         Vec3 w = v.plus(u);
@@ -71,7 +71,7 @@ class Vec3Test {
     }
 
     @Test
-    public void giveTwoVectorsWhenMultipliedThenResultedVectorIsCorrect() {
+    public void givenTwoVectorsWhenMultipliedThenResultedVectorIsCorrect() {
         v.setAll(9.325f);
         Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
         Vec3 w = v.times(u);
@@ -81,12 +81,19 @@ class Vec3Test {
     }
 
     @Test
-    public void giveTwoVectorsWhenDividedThenResultedVectorIsCorrect() {
+    public void givenTwoVectorsWhenDividedThenResultedVectorIsCorrect() {
         v.setAll(9.325f);
         Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
         Vec3 w = v.over(u);
         assertEquals(w.x(), 1.013587f);
         assertEquals(w.y(), -0.62166667f);
         assertEquals(w.z(), 1.2433333f);
+    }
+
+    @Test
+    public void givenTwoVectorsWhenDotIsComputedThenItIsCorrect() {
+        v.setAll(3.14159f);
+        Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
+        assertEquals(v.dot(u), 5.340702f);
     }
 }
