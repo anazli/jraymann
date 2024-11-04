@@ -1,9 +1,9 @@
 package com.org.raymann.mathtools;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class Vec3Test {
     private Vec3 v;
@@ -105,5 +105,16 @@ class Vec3Test {
         assertEquals(w.x(), 6188.468956f);
         assertEquals(w.y(), -4078.24076504f);
         assertEquals(w.z(), -288.9047075f);
+    }
+
+    @Test
+    public void givenTwoEqualVectorsWhenTheyAreComparedThenReturnsTrue() {
+        v.setX(1.f);
+        v.setY(2.f);
+        v.setZ(3.f);
+        Vec3 u = new Vec3(1.f, 2.f, 3.f);
+        assertTrue(v.equals(u));
+        v.setAll(5.f);
+        assertFalse(v.equals(u));
     }
 }

@@ -75,4 +75,12 @@ public class Vec3 {
         Float c = x * v.y() - y * v.x();
         return new Vec3(a, b, c);
     }
+
+    public boolean equals(Vec3 v) {
+        return (x.equals(v.x()) && y.equals(v.y()) && z.equals(v.z()));
+    }
+
+    public String getInfoStr() {
+        return "(" + x + "," + y + "," + z + ")";
+    }
 }
