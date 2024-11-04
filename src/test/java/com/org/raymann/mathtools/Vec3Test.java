@@ -10,7 +10,7 @@ class Vec3Test {
 
     @BeforeEach
     void setUp() {
-        v = new Vec3();
+        v = Vec3.create();
     }
 
     @Test
@@ -63,7 +63,7 @@ class Vec3Test {
     @Test
     public void givenTwoVectorsWhenAddedThenResultedVectorIsCorrect() {
         v.setAll(5.2f);
-        Vec3 u = new Vec3(3.14159f, -45.9f, 200.5346f);
+        Vec3 u = Vec3.create(3.14159f, -45.9f, 200.5346f);
         Vec3 w = v.plus(u);
         assertEquals(w.x(), 8.34159f);
         assertEquals(w.y(), -40.7f);
@@ -73,7 +73,7 @@ class Vec3Test {
     @Test
     public void givenTwoVectorsWhenSubtractedThenResultedVectorIsCorrect() {
         v.setAll(10.f);
-        Vec3 u = new Vec3(10.f, 10.f, 10.f);
+        Vec3 u = Vec3.create(10.f, 10.f, 10.f);
         Vec3 w = v.minus(u);
         assertEquals(w.x(), 0.f);
         assertEquals(w.y(), 0.f);
@@ -83,7 +83,7 @@ class Vec3Test {
     @Test
     public void givenTwoVectorsWhenMultipliedThenResultedVectorIsCorrect() {
         v.setAll(9.325f);
-        Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
+        Vec3 u = Vec3.create(9.2f, -15.f, 7.5f);
         Vec3 w = v.times(u);
         assertEquals(w.x(), 85.78999f);
         assertEquals(w.y(), -139.875f);
@@ -93,7 +93,7 @@ class Vec3Test {
     @Test
     public void givenVectorAndFloatWhenMultipliedThenResultedVectorIsCorrect() {
         Float f = 9.325f;
-        v = new Vec3(9.2f, -15.f, 7.5f);
+        v = Vec3.create(9.2f, -15.f, 7.5f);
         Vec3 w = v.times(f);
         assertEquals(w.x(), 85.78999f);
         assertEquals(w.y(), -139.875f);
@@ -103,7 +103,7 @@ class Vec3Test {
     @Test
     public void givenTwoVectorsWhenDividedThenResultedVectorIsCorrect() {
         v.setAll(9.325f);
-        Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
+        Vec3 u = Vec3.create(9.2f, -15.f, 7.5f);
         Vec3 w = v.over(u);
         assertEquals(w.x(), 1.013587f);
         assertEquals(w.y(), -0.62166667f);
@@ -113,7 +113,7 @@ class Vec3Test {
     @Test
     public void givenVectorAndFloatWhenDividedThenResultedVectorIsCorrect() {
         Float f = 9.325f;
-        v = new Vec3(9.2f, -15.f, 7.5f);
+        v = Vec3.create(9.2f, -15.f, 7.5f);
         Vec3 w = v.over(f);
         assertEquals(w.x(), 0.98659515f);
         assertEquals(w.y(), -1.6085792f);
@@ -123,14 +123,14 @@ class Vec3Test {
     @Test
     public void givenTwoVectorsWhenDotIsComputedThenItIsCorrect() {
         v.setAll(3.14159f);
-        Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
+        Vec3 u = Vec3.create(9.2f, -15.f, 7.5f);
         assertEquals(v.dot(u), 5.340702f);
     }
 
     @Test
     public void givenTwoVectorsWhenCrossIsComputedThenItIsCorrect() {
-        v = new Vec3(3.14159f,-0.4365f,73.456f);
-        Vec3 u = new Vec3(-55.5f,-84.25f,0.456f);
+        v = Vec3.create(3.14159f,-0.4365f,73.456f);
+        Vec3 u = Vec3.create(-55.5f,-84.25f,0.456f);
         Vec3 w = v.cross(u);
         assertEquals(w.x(), 6188.468956f);
         assertEquals(w.y(), -4078.24076504f);
@@ -142,7 +142,7 @@ class Vec3Test {
         v.setX(1.f);
         v.setY(2.f);
         v.setZ(3.f);
-        Vec3 u = new Vec3(1.f, 2.f, 3.f);
+        Vec3 u = Vec3.create(1.f, 2.f, 3.f);
         assertTrue(v.equals(u));
         v.setAll(5.f);
         assertFalse(v.equals(u));

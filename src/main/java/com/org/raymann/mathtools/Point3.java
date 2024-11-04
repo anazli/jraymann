@@ -15,6 +15,14 @@ public class Point3 {
         this.z = z;
     }
 
+    public static Point3 create() {
+        return new Point3();
+    }
+
+    public static Point3 create(Float x, Float y, Float z) {
+        return new Point3(x,y,z);
+    }
+
     public void setX(Float x) {
         this.x = x;
     }

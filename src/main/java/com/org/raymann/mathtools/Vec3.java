@@ -15,6 +15,14 @@ public class Vec3 {
         this.z = z;
     }
 
+    public static Vec3 create() {
+        return new Vec3();
+    }
+
+    public static Vec3 create(Float x, Float y, Float z) {
+        return new Vec3(x, y, z);
+    }
+
     public void setX(Float x) {
         this.x = x;
     }

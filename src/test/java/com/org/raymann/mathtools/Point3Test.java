@@ -10,7 +10,7 @@ class Point3Test {
 
     @BeforeEach
     void setUp() {
-        p = new Point3();
+        p = Point3.create();
     }
 
     @Test
@@ -44,8 +44,8 @@ class Point3Test {
 
     @Test
     public void givenTwoEqualPointsWhenTheyAreComparedThenReturnsTrue() {
-        p = new Point3(25.345f, 56.46f, 45.76f);
-        Point3 p1 = new Point3(25.345f, 56.46f, 45.76f);
+        p = Point3.create(25.345f, 56.46f, 45.76f);
+        Point3 p1 = Point3.create(25.345f, 56.46f, 45.76f);
         assertTrue(p.equals(p1));
         p.setX(924.55f);
         assertFalse(p.equals(p1));
@@ -54,7 +54,7 @@ class Point3Test {
     @Test
     public void givenPointAndVectorWhenAddedThenResultedPointIsCorrect() {
         p.setAll(5.2f);
-        Vec3 u = new Vec3(3.14159f, -45.9f, 200.5346f);
+        Vec3 u = Vec3.create(3.14159f, -45.9f, 200.5346f);
         Point3 w = p.plus(u);
         assertEquals(w.x(), 8.34159f);
         assertEquals(w.y(), -40.7f);
@@ -64,7 +64,7 @@ class Point3Test {
     @Test
     public void givenTwoPointsWhenSubtractedThenResultedVectorIsCorrect() {
         p.setAll(5.2f);
-        Point3 u = new Point3(3.14159f, -45.9f, 200.5346f);
+        Point3 u = Point3.create(3.14159f, -45.9f, 200.5346f);
         Vec3 w = p.minus(u);
         assertEquals(w.x(), 2.0584097f);
         assertEquals(w.y(), 51.100002f);
@@ -74,7 +74,7 @@ class Point3Test {
     @Test
     public void givenPointsAndVectorWhenSubtractedThenResultedPointIsCorrect() {
         p.setAll(5.2f);
-        Vec3 u = new Vec3(3.14159f, -45.9f, 200.5346f);
+        Vec3 u = Vec3.create(3.14159f, -45.9f, 200.5346f);
         Point3 w = p.minus(u);
         assertEquals(w.x(), 2.0584097f);
         assertEquals(w.y(), 51.100002f);
