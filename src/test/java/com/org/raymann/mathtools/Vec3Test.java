@@ -96,4 +96,14 @@ class Vec3Test {
         Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
         assertEquals(v.dot(u), 5.340702f);
     }
+
+    @Test
+    public void givenTwoVectorsWhenCrossIsComputedThenItIsCorrect() {
+        v = new Vec3(3.14159f,-0.4365f,73.456f);
+        Vec3 u = new Vec3(-55.5f,-84.25f,0.456f);
+        Vec3 w = v.cross(u);
+        assertEquals(w.x(), 6188.468956f);
+        assertEquals(w.y(), -4078.24076504f);
+        assertEquals(w.z(), -288.9047075f);
+    }
 }

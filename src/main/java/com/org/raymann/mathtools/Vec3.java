@@ -68,4 +68,11 @@ public class Vec3 {
     public Float dot(Vec3 v) {
         return x * v.x() + y * v.y() + z * v.z();
     }
+
+    public Vec3 cross(Vec3 v) {
+        Float a = y * v.z() - z * v.y();
+        Float b = z * v.x() - x * v.z();
+        Float c = x * v.y() - y * v.x();
+        return new Vec3(a, b, c);
+    }
 }
