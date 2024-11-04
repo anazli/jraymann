@@ -57,6 +57,10 @@ public class Vec3 {
         return new Vec3(x + v.x(), y + v.y(), z + v.z());
     }
 
+    public Vec3 minus(Vec3 v) {
+        return new Vec3(x - v.x(), y - v.y(), z - v.z());
+    }
+
     public Vec3 times(Vec3 v) {
         return new Vec3(x * v.x(), y * v.y(), z * v.z());
     }

@@ -71,6 +71,16 @@ class Vec3Test {
     }
 
     @Test
+    public void givenTwoVectorsWhenSubtractedThenResultedVectorIsCorrect() {
+        v.setAll(10.f);
+        Vec3 u = new Vec3(10.f, 10.f, 10.f);
+        Vec3 w = v.minus(u);
+        assertEquals(w.x(), 0.f);
+        assertEquals(w.y(), 0.f);
+        assertEquals(w.z(), 0.f);
+    }
+
+    @Test
     public void givenTwoVectorsWhenMultipliedThenResultedVectorIsCorrect() {
         v.setAll(9.325f);
         Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
