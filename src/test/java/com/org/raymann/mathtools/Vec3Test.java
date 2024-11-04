@@ -91,6 +91,16 @@ class Vec3Test {
     }
 
     @Test
+    public void givenVectorAndFloatWhenMultipliedThenResultedVectorIsCorrect() {
+        Float f = 9.325f;
+        v = new Vec3(9.2f, -15.f, 7.5f);
+        Vec3 w = v.times(f);
+        assertEquals(w.x(), 85.78999f);
+        assertEquals(w.y(), -139.875f);
+        assertEquals(w.z(), 69.9375f);
+    }
+
+    @Test
     public void givenTwoVectorsWhenDividedThenResultedVectorIsCorrect() {
         v.setAll(9.325f);
         Vec3 u = new Vec3(9.2f, -15.f, 7.5f);
@@ -98,6 +108,16 @@ class Vec3Test {
         assertEquals(w.x(), 1.013587f);
         assertEquals(w.y(), -0.62166667f);
         assertEquals(w.z(), 1.2433333f);
+    }
+
+    @Test
+    public void givenVectorAndFloatWhenDividedThenResultedVectorIsCorrect() {
+        Float f = 9.325f;
+        v = new Vec3(9.2f, -15.f, 7.5f);
+        Vec3 w = v.over(f);
+        assertEquals(w.x(), 0.98659515f);
+        assertEquals(w.y(), -1.6085792f);
+        assertEquals(w.z(), 0.8042896f);
     }
 
     @Test
@@ -126,5 +146,14 @@ class Vec3Test {
         assertTrue(v.equals(u));
         v.setAll(5.f);
         assertFalse(v.equals(u));
+    }
+
+    @Test
+    public void givenNonNullVectorWhenNegatedThenReturnsOpposite() {
+        v.setAll(43.87f);
+        Vec3 u = v.opposite();
+        assertEquals(-v.x(), u.x());
+        assertEquals(-v.y(), u.y());
+        assertEquals(-v.z(), u.z());
     }
 }

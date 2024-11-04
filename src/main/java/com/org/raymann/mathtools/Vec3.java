@@ -50,7 +50,7 @@ public class Vec3 {
 
     public Vec3 normalVector() {
         Float l = length();
-        return new Vec3(x/l, y/l, z/l);
+        return new Vec3(x / l, y / l, z / l);
     }
 
     public Vec3 plus(Vec3 v) {
@@ -65,8 +65,16 @@ public class Vec3 {
         return new Vec3(x * v.x(), y * v.y(), z * v.z());
     }
 
+    public Vec3 times(Float f) {
+        return new Vec3(x * f, y * f, z * f);
+    }
+
     public Vec3 over(Vec3 v) {
-        return new Vec3(x/v.x(), y/v.y(), z/v.z());
+        return new Vec3(x / v.x(), y / v.y(), z / v.z());
+    }
+
+    public Vec3 over(Float f) {
+        return new Vec3(x / f, y / f, z / f);
     }
 
     public Float dot(Vec3 v) {
@@ -81,7 +89,13 @@ public class Vec3 {
     }
 
     public boolean equals(Vec3 v) {
-        return (x.equals(v.x()) && y.equals(v.y()) && z.equals(v.z()));
+        return (Math.abs(x - v.x()) < Constants.EPSILON) &&
+                (Math.abs(y - v.y()) < Constants.EPSILON) &&
+                (Math.abs(z - v.z()) < Constants.EPSILON);
+    }
+
+    public Vec3 opposite() {
+        return new Vec3(-x, -y, -z);
     }
 
     public String getInfoStr() {

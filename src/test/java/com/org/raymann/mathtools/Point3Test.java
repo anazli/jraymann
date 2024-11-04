@@ -52,16 +52,6 @@ class Point3Test {
     }
 
     @Test
-    public void givenTwoPointsWhenAddedThenResultedVectorIsCorrect() {
-        p.setAll(5.2f);
-        Point3 u = new Point3(3.14159f, -45.9f, 200.5346f);
-        Vec3 w = p.plus(u);
-        assertEquals(w.x(), 8.34159f);
-        assertEquals(w.y(), -40.7f);
-        assertEquals(w.z(), 205.7346f);
-    }
-
-    @Test
     public void givenPointAndVectorWhenAddedThenResultedPointIsCorrect() {
         p.setAll(5.2f);
         Vec3 u = new Vec3(3.14159f, -45.9f, 200.5346f);

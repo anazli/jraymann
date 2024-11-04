@@ -44,11 +44,9 @@ public class Point3 {
     }
 
     public boolean equals(Point3 p) {
-        return x.equals(p.x()) && y.equals(p.y()) && z.equals(p.z());
-    }
-
-    public Vec3 plus(Point3 p) {
-        return new Vec3(x + p.x(), y + p.y(), z + p.z());
+        return (Math.abs(x - p.x()) < Constants.EPSILON) &&
+                (Math.abs(y - p.y()) < Constants.EPSILON) &&
+                (Math.abs(z - p.z()) < Constants.EPSILON);
     }
 
     public Point3 plus(Vec3 v) {
