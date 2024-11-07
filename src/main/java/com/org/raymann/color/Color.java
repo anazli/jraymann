@@ -25,6 +25,18 @@ public class Color {
         return value.equals(other.rgb());
     }
 
+    public void setRed(Float r) {
+        value.setX(r);
+    }
+
+    public void setGreen(Float g) {
+        value.setX(g);
+    }
+
+    public void setBlue(Float b) {
+        value.setX(b);
+    }
+
     public Float red() {
         return value.x();
     }
