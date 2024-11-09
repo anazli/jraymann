@@ -44,11 +44,11 @@ class Vec3Test {
 
     @Test
     public void givenNonNullVectorWhenLengthIsReturnedThenItIsCorrect() {
-        assertEquals(v.length(), ((Double)Math.sqrt(0.f)).floatValue());
+        assertEquals(v.length(), (float)Math.sqrt(0.f));
         v.setAll(-1.f);
-        assertEquals(v.length(), ((Double)Math.sqrt(3.f)).floatValue());
+        assertEquals(v.length(), (float)Math.sqrt(3.f));
         v.setAll(3.f);
-        assertEquals(v.length(), ((Double)Math.sqrt(27.f)).floatValue());
+        assertEquals(v.length(), (float)Math.sqrt(27.f));
     }
 
     @Test
