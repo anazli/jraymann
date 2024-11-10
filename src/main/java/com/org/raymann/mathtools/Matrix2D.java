@@ -64,4 +64,9 @@ public class Matrix2D {
                 this.get(1, 1) * m.get(1, 1));
         return ret;
     }
+
+    public Float determinant() {
+        return get(0, 0) * get(1, 1) -
+                get(0, 1) * get(1, 0);
+    }
 }

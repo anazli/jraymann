@@ -69,6 +69,13 @@ class Matrix2DTest {
     }
 
     @Test
+    public void givenNotNullMatrixWhenDeterminantIsCalculatedTheItIsCorrect() {
+        m = Matrix2D.create(Vec2.create(5.36f, 2.28f), Vec2.create(-1.5f, 85.f));
+        assertTrue(Math.abs(459.02002f - m.determinant()) < Constants.EPSILON);
+
+    }
+
+    @Test
     public void givenTwoMatricesWhenMultipliedThenResultIsCorrect() {
         m = Matrix2D.create(Vec2.create(1.36f, 1.28f), Vec2.create(1.5f, 0.f));
         Matrix2D mr = Matrix2D.create(Vec2.create(9.f, -5.8f), Vec2.create(-6.5f, 5.3f));
