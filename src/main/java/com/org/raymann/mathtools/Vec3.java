@@ -51,6 +51,30 @@ public class Vec3 {
         return z;
     }
 
+    public void set(int index, Float value) {
+        if(index > 2 || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+        switch (index) {
+            case 0: x = value;break;
+            case 1: y = value;break;
+            case 2: z = value;break;
+        }
+    }
+
+    public Float get(int index) {
+        if(index < 0 || index > 2) {
+            throw new IndexOutOfBoundsException();
+        }
+        if(index == 0) {
+            return x;
+        }
+        else if(index == 1) {
+            return y;
+        }
+        return z;
+    }
+
     public Float length() {
         double d = Math.sqrt((x * x) + (y * y) + (z * z));
         return (float) d;
