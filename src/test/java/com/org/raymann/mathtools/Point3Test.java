@@ -15,9 +15,9 @@ class Point3Test {
 
     @Test
     public void givenNullPointWhenCreatedThenIsZeroInit() {
-        assertEquals(p.x(), 0.f);
-        assertEquals(p.y(), 0.f);
-        assertEquals(p.z(), 0.f);
+        assertEquals(0.f, p.x());
+        assertEquals(0.f, p.y());
+        assertEquals(0.f, p.z());
     }
 
     @Test
@@ -28,18 +28,18 @@ class Point3Test {
         p.setX(x);
         p.setY(y);
         p.setZ(z);
-        assertEquals(p.x(), x);
-        assertEquals(p.y(), y);
-        assertEquals(p.z(), z);
+        assertEquals(x, p.x());
+        assertEquals(y, p.y());
+        assertEquals(z, p.z());
     }
 
     @Test
     public void givenFloatWhenSetsAllCoordsThenTheyAreCorrectlyUpdated() {
         Float f = 3.14159f;
         p.setAll(f);
-        assertEquals(p.x(), f);
-        assertEquals(p.y(), f);
-        assertEquals(p.z(), f);
+        assertEquals(f, p.x());
+        assertEquals(f, p.y());
+        assertEquals(f, p.z());
     }
 
     @Test
@@ -56,9 +56,9 @@ class Point3Test {
         p.setAll(5.2f);
         Vec3 u = Vec3.create(3.14159f, -45.9f, 200.5346f);
         Point3 w = p.plus(u);
-        assertEquals(w.x(), 8.34159f);
-        assertEquals(w.y(), -40.7f);
-        assertEquals(w.z(), 205.7346f);
+        assertEquals(8.34159f, w.x());
+        assertEquals(-40.7f, w.y());
+        assertEquals(205.7346f, w.z());
     }
 
     @Test
@@ -66,9 +66,9 @@ class Point3Test {
         p.setAll(5.2f);
         Point3 u = Point3.create(3.14159f, -45.9f, 200.5346f);
         Vec3 w = p.minus(u);
-        assertEquals(w.x(), 2.0584097f);
-        assertEquals(w.y(), 51.100002f);
-        assertEquals(w.z(), -195.33461f);
+        assertEquals(2.0584097f, w.x());
+        assertEquals(51.100002f, w.y());
+        assertEquals(-195.33461f, w.z());
     }
 
     @Test
@@ -76,8 +76,8 @@ class Point3Test {
         p.setAll(5.2f);
         Vec3 u = Vec3.create(3.14159f, -45.9f, 200.5346f);
         Point3 w = p.minus(u);
-        assertEquals(w.x(), 2.0584097f);
-        assertEquals(w.y(), 51.100002f);
-        assertEquals(w.z(), -195.33461f);
+        assertEquals(2.0584097f, w.x());
+        assertEquals(51.100002f, w.y());
+        assertEquals(-195.33461f, w.z());
     }
 }
