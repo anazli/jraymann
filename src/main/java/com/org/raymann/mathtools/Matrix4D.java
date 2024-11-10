@@ -19,7 +19,7 @@ public class Matrix4D {
         data.add(Vec4.create(row1.x(), row1.y(), row1.z(), row1.w()));
         data.add(Vec4.create(row2.x(), row2.y(), row2.z(), row2.w()));
         data.add(Vec4.create(row3.x(), row3.y(), row3.z(), row3.w()));
-        data.add(Vec4.create(row3.x(), row3.y(), row3.z(), row4.w()));
+        data.add(Vec4.create(row4.x(), row4.y(), row4.z(), row4.w()));
     }
 
     public static Matrix4D create() {
