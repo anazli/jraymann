@@ -10,8 +10,8 @@ class Vec2Test {
     @Test
     public void givenNullVectorWhenIsCreatedThenItIsZeroInitialized() {
         v = Vec2.create();
-        assertEquals(v.x(), 0.f);
-        assertEquals(v.y(), 0.f);
+        assertEquals(0.f, v.x());
+        assertEquals(0.f, v.y());
     }
 
     @Test
@@ -19,11 +19,11 @@ class Vec2Test {
         v = Vec2.create();
         v.setX(5.f);
         v.setY(6.f);
-        assertEquals(v.x(), 5.f);
-        assertEquals(v.y(), 6.f);
+        assertEquals(5.f, v.x());
+        assertEquals(6.f, v.y());
         v.setAll(-13.f);
-        assertEquals(v.x(), -13.f);
-        assertEquals(v.y(), -13.f);
+        assertEquals(-13.f, v.x());
+        assertEquals(-13.f, v.y());
     }
 
     @Test
@@ -36,7 +36,7 @@ class Vec2Test {
                 () -> {v.set(2, 5.f);});
         assertEquals(IndexOutOfBoundsException.class, exc2.getClass());
         v.set(0, 5.f);
-        assertEquals(v.x(), 5.f);
+        assertEquals(5.f, v.x());
     }
 
     @Test
@@ -49,34 +49,34 @@ class Vec2Test {
                 () -> {v.set(2, 5.f);});
         assertEquals(IndexOutOfBoundsException.class, exc2.getClass());
         v.setX(5.f);
-        assertEquals(v.get(0), 5.f);
+        assertEquals(5.f, v.get(0));
     }
 
     @Test
     public void givenNotNullVectorWhenLengthIsReturnedThenItIsCorrect() {
         v = Vec2.create();
-        assertEquals(v.length(), 0.f);
+        assertEquals(0.f, v.length());
         v.setAll(1.f);
-        assertEquals(v.length(), (float) Math.sqrt(2.f));
+        assertEquals((float) Math.sqrt(2.f), v.length());
         v.setAll(3.f);
-        assertEquals(v.length(), (float)Math.sqrt(18.f));
+        assertEquals((float)Math.sqrt(18.f), v.length());
         v.setAll(5.f);
-        assertEquals(v.length(), (float)Math.sqrt(50.f));
+        assertEquals((float)Math.sqrt(50.f), v.length());
     }
 
     @Test
     public void givenNotNullVectorWhenMultipliedWithFloatThenItIsCorrect() {
         v = Vec2.create(1.f, 0.f);
         Vec2 u = v.times(5.f);
-        assertEquals(u.x(), 5.f);
-        assertEquals(u.y(), 0.f);
+        assertEquals(5.f, u.x());
+        assertEquals(0.f, u.y());
     }
 
     @Test
     public void givenNotNullVectorWhenNormalVecIsReturnedThenItIsCorrect() {
         v = Vec2.create(4.53f, 93.5f);
         Vec2 u = v.normalVector();
-        assertEquals(u.length(), 1.f);
+        assertEquals(1.f, u.length());
     }
 
     @Test
@@ -84,8 +84,8 @@ class Vec2Test {
         v = Vec2.create(1.45f, -10.55f);
         Vec2 u = Vec2.create(-55.2f, 40.48f);
         Vec2 w = v.plus(u);
-        assertEquals(w.x(), -53.75f);
-        assertEquals(w.y(), 29.93f);
+        assertEquals(-53.75f, w.x());
+        assertEquals(29.93f, w.y());
 
     }
 
@@ -94,8 +94,8 @@ class Vec2Test {
         v = Vec2.create();
         Vec2 u = Vec2.create(5.f, -45.f);
         Vec2 w = v.minus(u);
-        assertEquals(w.x(), -5.f);
-        assertEquals(w.y(), 45.f);
+        assertEquals(-5.f, w.x());
+        assertEquals(45.f, w.y());
     }
 
     @Test
@@ -103,20 +103,20 @@ class Vec2Test {
         v = Vec2.create(3.f, -5.f);
         Vec2 u = Vec2.create(6.f, -3.f);
         Vec2 w = v.times(u);
-        assertEquals(w.x(), 18.f);
-        assertEquals(w.y(), 15.f);
+        assertEquals(18.f, w.x());
+        assertEquals(15.f, w.y());
     }
 
     @Test
     public void givenTwoVectorsWhenDotProductIsReturnedThenResultIsCorrect() {
         v = Vec2.create(3.f, 3.f);
         Vec2 u = Vec2.create(3.f, 3.f);
-        assertEquals(v.dot(u), 18.f);
+        assertEquals(18.f, v.dot(u));
         v.setX(-1.f);
         v.setY(5.f);
         u.setX(-3.f);
         u.setY(3.f);
-        assertEquals(v.dot(u), 18.f);
+        assertEquals(18.f, v.dot(u));
     }
 
     @Test
