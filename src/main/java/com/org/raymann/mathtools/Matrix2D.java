@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Matrix2D {
     private ArrayList<Vec2> data;
-    private static final int length = 2;
+    private static final int LENGTH = 2;
 
     public Matrix2D() {
         data = new ArrayList<>();
@@ -13,11 +13,9 @@ public class Matrix2D {
     }
 
     public Matrix2D(Vec2 row1, Vec2 row2) {
-        Vec2 r1 = Vec2.create(row1.x(), row1.y());
-        Vec2 r2 = Vec2.create(row2.x(), row2.y());
         data = new ArrayList<>();
-        data.add(r1);
-        data.add(r2);
+        data.add(Vec2.create(row1.x(), row1.y()));
+        data.add(Vec2.create(row2.x(), row2.y()));
     }
 
     public static Matrix2D create() {
@@ -29,14 +27,14 @@ public class Matrix2D {
     }
 
     public void set(int row, int col, Float val) {
-        if(row > 1 || row < 0) {
+        if(row >= LENGTH || row < 0) {
             throw new IndexOutOfBoundsException();
         }
         data.get(row).set(col, val);
     }
 
     public Float get(int row, int col) {
-        if(row > 1 || row < 0) {
+        if(row >= LENGTH || row < 0) {
             throw new IndexOutOfBoundsException();
         }
         return data.get(row).get(col);
