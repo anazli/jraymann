@@ -25,6 +25,10 @@ public class Vec4 {
         return new Vec4(x, y, z, w);
     }
 
+    public static Vec4 create(Vec3 v) {
+        return new Vec4(v.x(), v.y(), v.z(), 0.f);
+    }
+
     public void setX(Float x) {
         this.x = x;
     }

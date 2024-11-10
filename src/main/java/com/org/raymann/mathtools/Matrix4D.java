@@ -84,6 +84,15 @@ public class Matrix4D {
         return Matrix4D.create(returnRow1, returnRow2, returnRow3, returnRow4);
     }
 
+    public Vec4 times(Vec4 v) {
+        Vec4 ret = Vec4.create();
+        ret.setX(data.get(0).dot(v));
+        ret.setY(data.get(1).dot(v));
+        ret.setZ(data.get(2).dot(v));
+        ret.setW(data.get(3).dot(v));
+        return ret;
+    }
+
     public Matrix4D transpose() {
         Matrix4D m = Matrix4D.create();
         m.set(0, 0, get(0,0));
@@ -213,4 +222,9 @@ public class Matrix4D {
         ret.set(1, 1, (float)Math.cos(rad));
         return ret;
     }
+
+    /*public static Matrix4D transformationChaining(Matrix4D a, Matrix4D b, Matrix4D c) {
+        Matrix4D m = b.times(c);
+        return m.times(a);
+    }*/
 }

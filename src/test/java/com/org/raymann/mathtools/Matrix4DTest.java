@@ -187,4 +187,87 @@ class Matrix4DTest {
         assertEquals(0.023882f, mt.get(3,2), eps);
         assertEquals(-0.295022f, mt.get(3,3), eps);
     }
+
+    @Test
+    public void givenTranslationMatrixWhenIsAppliedToVectorThenReturnedVectorIsCorrect() {
+        Vec3 v3 = Vec3.create(-3.0f, 4.0f, 5.0f);
+        Matrix4D m = Matrix4D.translation(v3);
+        Vec4 v4 = Vec4.create(v3);
+        v4 = m.times(v4);
+        assertEquals(v3.x(), v4.x());
+        assertEquals(v3.y(), v4.y());
+        assertEquals(v3.z(), v4.z());
+        assertEquals(0.f, v4.w());
+    }
+
+    @Test
+    public void givenScalingMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
+        Vec3 v3 = Vec3.create(-4.0f, 6.0f, 8.0f);
+        Matrix4D m = Matrix4D.scale(2.f, 3.f, 4.f);
+        Vec4 v4 = Vec4.create(v3);
+        v4 = m.times(v4);
+
+        assertEquals(-8.f, v4.x());
+        assertEquals(18.f, v4.y());
+        assertEquals(32.f, v4.z());
+    }
+
+    @Test
+    public void givenScalingMatrixWhenInverseIsAppliedToVectorThenReturnedVectorIsCorrect() {
+        Vec3 v3 = Vec3.create(-4.0f, 6.0f, 8.0f);
+        Matrix4D m = Matrix4D.scale(2.f, 3.f, 4.f);
+        Vec4 v4 = Vec4.create(v3);
+        m = m.inverse();
+        v4 = m.times(v4);
+
+        assertEquals(-2.f, v4.x());
+        assertEquals(2.f, v4.y());
+        assertEquals(2.f, v4.z());
+    }
+
+    @Test
+    public void givenXRotationMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
+        Matrix4D m = Matrix4D.rotationOverX(Constants.PI/4.f);
+        Vec4 v4 = Vec4.create(0.f, 1.f, 0.f, 0.f);
+        v4 = m.times(v4);
+        assertEquals(0.f, v4.x());
+        assertEquals((float)Math.sqrt(2.f)/2.f, v4.y());
+        assertEquals((float)Math.sqrt(2.f)/2.f, v4.z());
+    }
+
+    @Test
+    public void givenYRotationMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
+        Matrix4D m = Matrix4D.rotationOverY(Constants.PI/4.f);
+        Vec4 v4 = Vec4.create(0.f, 0.f, 1.f, 0.f);
+        v4 = m.times(v4);
+        assertEquals((float)Math.sqrt(2.f)/2.f, v4.x());
+        assertEquals(0.f, v4.y());
+        assertEquals((float)Math.sqrt(2.f)/2.f, v4.z());
+    }
+
+    @Test
+    public void givenZRotationMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
+        Matrix4D m = Matrix4D.rotationOverZ(Constants.PI/4.f);
+        Vec4 v4 = Vec4.create(0.f, 1.f, 0.f, 0.f);
+        v4 = m.times(v4);
+        assertEquals(-(float)Math.sqrt(2.f)/2.f, v4.x());
+        assertEquals((float)Math.sqrt(2.f)/2.f, v4.y());
+        assertEquals(0.f, v4.z());
+    }
+
+    @Test
+    public void givenTransformationMatricesWhenChainingIsAppliedToVectorThenReturnedVectorIsCorrect() {
+        Vec4 v4 = Vec4.create(1.f, 0.f, 1.f, 0.f);
+        Matrix4D rotationOverX = Matrix4D.rotationOverX(Constants.PI/2.f);
+        Matrix4D scale = Matrix4D.scale(5.f, 5.f, 5.f);
+        Matrix4D translation = Matrix4D.scale(10.f, 5.f, 7.f);
+        Matrix4D m = scale.times(rotationOverX);
+        m = translation.times(m);
+        v4 = m.times(v4);
+
+        assertEquals(15.f, v4.x());
+        assertEquals(0.f, v4.y());
+        assertEquals(7.f, v4.z());
+        assertEquals(0.f, v4.z());
+    }
 }
