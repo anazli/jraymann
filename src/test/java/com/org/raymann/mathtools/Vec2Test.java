@@ -27,6 +27,32 @@ class Vec2Test {
     }
 
     @Test
+    public void givenNotNullVectorWhenIndexIsProvidedThenValueIsSetCorrectly() {
+        v = Vec2.create();
+        IndexOutOfBoundsException exc1 = assertThrows(IndexOutOfBoundsException.class,
+                () -> {v.set(-1, 5.f);});
+        assertEquals(IndexOutOfBoundsException.class, exc1.getClass());
+        IndexOutOfBoundsException exc2 = assertThrows(IndexOutOfBoundsException.class,
+                () -> {v.set(2, 5.f);});
+        assertEquals(IndexOutOfBoundsException.class, exc2.getClass());
+        v.set(0, 5.f);
+        assertEquals(v.x(), 5.f);
+    }
+
+    @Test
+    public void givenNotNullVectorWhenIndexIsProvidedThenValueIsReturnedCorrectly() {
+        v = Vec2.create();
+        IndexOutOfBoundsException exc1 = assertThrows(IndexOutOfBoundsException.class,
+                () -> {v.set(-1, 5.f);});
+        assertEquals(IndexOutOfBoundsException.class, exc1.getClass());
+        IndexOutOfBoundsException exc2 = assertThrows(IndexOutOfBoundsException.class,
+                () -> {v.set(2, 5.f);});
+        assertEquals(IndexOutOfBoundsException.class, exc2.getClass());
+        v.setX(5.f);
+        assertEquals(v.get(0), 5.f);
+    }
+
+    @Test
     public void givenNotNullVectorWhenLengthIsReturnedThenItIsCorrect() {
         v = Vec2.create();
         assertEquals(v.length(), 0.f);
