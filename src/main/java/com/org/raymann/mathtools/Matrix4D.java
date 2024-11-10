@@ -114,6 +114,44 @@ public class Matrix4D {
     }
 
     public Float determinant() {
-        return 0.f;
+        float det = 0.f;
+        for(int j = 0 ; j < LENGTH ; ++j) {
+            det += data.get(0).get(j) * coFactor(0, j);
+        }
+        return det;
+    }
+
+    public Matrix3D minor(int i, int j) {
+        Matrix3D m = Matrix3D.create();
+        int yy = 0;
+        for(int y = 0 ; y < LENGTH ; ++y) {
+            if(y == j) continue;
+            int xx = 0;
+            for(int x = 0 ; x < LENGTH ; ++x) {
+                if(x == i) continue;
+                m.set(xx, yy, data.get(x).get(y));
+                xx++;
+            }
+            yy++;
+        }
+        return m;
+    }
+
+    public Float coFactor(int i, int j) {
+        Matrix3D m = minor(i, j);
+        return (float)Math.pow(-1.f, i + j + 2) * m.determinant();
+    }
+
+    public Matrix4D inverse() {
+        float det = determinant();
+        if(det != 0) throw new RuntimeException("Matrix is not invertible!");
+        Matrix4D inv = Matrix4D.create();
+        for(int i = 0 ; i < LENGTH ; ++i) {
+            for(int j = 0 ; j < LENGTH ; ++j) {
+                float c = coFactor(i, j);
+                inv.set(j, i, c / det);
+            }
+        }
+        return inv;
     }
 }
