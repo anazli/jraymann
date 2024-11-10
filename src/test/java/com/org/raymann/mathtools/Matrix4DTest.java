@@ -257,17 +257,16 @@ class Matrix4DTest {
 
     @Test
     public void givenTransformationMatricesWhenChainingIsAppliedToVectorThenReturnedVectorIsCorrect() {
-        Vec4 v4 = Vec4.create(1.f, 0.f, 1.f, 0.f);
-        Matrix4D rotationOverX = Matrix4D.rotationOverX(Constants.PI/2.f);
+        Vec4 v4 = Vec4.create(1.f, 0.f, 1.f, 1.f);
+        Matrix4D rotationOverX = Matrix4D.rotationOverX(Constants.PI / 2.f);
         Matrix4D scale = Matrix4D.scale(5.f, 5.f, 5.f);
-        Matrix4D translation = Matrix4D.scale(10.f, 5.f, 7.f);
-        Matrix4D m = scale.times(rotationOverX);
-        m = translation.times(m);
+        Matrix4D translation = Matrix4D.translation(10.f, 5.f, 7.f);
+        Matrix4D m = Matrix4D.chainedTransformationMatrix(rotationOverX, scale, translation);
         v4 = m.times(v4);
 
         assertEquals(15.f, v4.x());
         assertEquals(0.f, v4.y());
         assertEquals(7.f, v4.z());
-        assertEquals(0.f, v4.z());
+        assertEquals(1.f, v4.w());
     }
 }

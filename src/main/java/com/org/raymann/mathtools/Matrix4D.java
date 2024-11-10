@@ -223,8 +223,11 @@ public class Matrix4D {
         return ret;
     }
 
-    /*public static Matrix4D transformationChaining(Matrix4D a, Matrix4D b, Matrix4D c) {
-        Matrix4D m = b.times(c);
-        return m.times(a);
-    }*/
+    public static Matrix4D chainedTransformationMatrix(Matrix4D a, Matrix4D b, Matrix4D c) {
+        Matrix4D m = Matrix4D.identity();
+        m = a.times(m);
+        m = b.times(m);
+        m = c.times(m);
+        return m;
+    }
 }
