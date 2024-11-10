@@ -144,7 +144,7 @@ public class Matrix4D {
 
     public Matrix4D inverse() {
         float det = determinant();
-        if(det != 0) throw new RuntimeException("Matrix is not invertible!");
+        if(det == 0) throw new RuntimeException("Matrix is not invertible!");
         Matrix4D inv = Matrix4D.create();
         for(int i = 0 ; i < LENGTH ; ++i) {
             for(int j = 0 ; j < LENGTH ; ++j) {
@@ -153,5 +153,64 @@ public class Matrix4D {
             }
         }
         return inv;
+    }
+
+    public static Matrix4D translation(Float x, Float y, Float z) {
+        Matrix4D ret = Matrix4D.identity();
+        ret.set(0, 3, x);
+        ret.set(1, 3, y);
+        ret.set(2, 3, z);
+        return ret;
+    }
+
+    public static Matrix4D translation(Vec3 v) {
+        Matrix4D ret = Matrix4D.identity();
+        ret.set(0, 3, v.x());
+        ret.set(1, 3, v.y());
+        ret.set(2, 3, v.z());
+        return ret;
+    }
+
+    public static Matrix4D scale(Float x, Float y, Float z) {
+        Matrix4D ret = Matrix4D.identity();
+        ret.set(0, 0, x);
+        ret.set(1, 1, y);
+        ret.set(2, 2, z);
+        return ret;
+    }
+
+    public static Matrix4D scale(Vec3 v) {
+        Matrix4D ret = Matrix4D.identity();
+        ret.set(0, 0, v.x());
+        ret.set(1, 1, v.y());
+        ret.set(2, 2, v.z());
+        return ret;
+    }
+
+    public static Matrix4D rotationOverX(Float rad) {
+        Matrix4D ret = Matrix4D.identity();
+        ret.set(1, 1, (float)Math.cos(rad));
+        ret.set(1, 2, -(float)Math.sin(rad));
+        ret.set(2, 1, (float)Math.sin(rad));
+        ret.set(2, 2, (float)Math.cos(rad));
+        return ret;
+    }
+
+    public static Matrix4D rotationOverY(Float rad) {
+        Matrix4D ret = Matrix4D.identity();
+        ret.set(0, 0, (float)Math.cos(rad));
+        ret.set(0, 2, (float)Math.sin(rad));
+        ret.set(2, 0, -(float)Math.sin(rad));
+        ret.set(2, 2, (float)Math.cos(rad));
+        return ret;
+    }
+
+    public static Matrix4D rotationOverZ(Float rad) {
+        Matrix4D ret = Matrix4D.identity();
+        ret.set(0, 0, (float)Math.cos(rad));
+        ret.set(0, 1, -(float)Math.sin(rad));
+        ret.set(1, 0, (float)Math.sin(rad));
+        ret.set(1, 1, (float)Math.cos(rad));
+        return ret;
     }
 }

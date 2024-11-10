@@ -157,4 +157,34 @@ class Matrix4DTest {
         assertEquals(0.f, mt.get(3,2));
         assertEquals(6.f, mt.get(3,3));
     }
+
+    @Test
+    public void givenNotNullMatrixWhenInvertedThenItIsCorrect() {
+        m = Matrix4D.create(Vec4.create(1.36f, 1.28f, 0.85f, -7.f),
+                            Vec4.create(1.5f, 0.f, -6.58f, 1.f),
+                            Vec4.create(4.5f, 0.f, -3.f, 10.f),
+                            Vec4.create(0.f, 1.f, 6.68f, -9.f));
+
+        Matrix4D mt = m.inverse();
+
+        assertEquals(-0.5764461f, mt.get(0,0), eps);
+        assertEquals(0.5823574f, mt.get(0,1), eps);
+        assertEquals( 0.202317f, mt.get(0,2), eps);
+        assertEquals(0.73785f, mt.get(0,3), eps);
+
+        assertEquals(2.71820f, mt.get(1,0), eps);
+        assertEquals(-2.112317f, mt.get(1,1), eps);
+        assertEquals(-0.11739f, mt.get(1,2), eps);
+        assertEquals(-2.47929f, mt.get(1,3), eps);
+
+        assertEquals(-0.09638f, mt.get(2,0), eps);
+        assertEquals(-0.061866f, mt.get(2,1), eps);
+        assertEquals(0.04975f, mt.get(2,2), eps);
+        assertEquals(0.12336f, mt.get(2,3), eps);
+
+        assertEquals(0.23048f, mt.get(3,0), eps);
+        assertEquals(-0.28062f, mt.get(3,1), eps);
+        assertEquals(0.023882f, mt.get(3,2), eps);
+        assertEquals(-0.295022f, mt.get(3,3), eps);
+    }
 }
