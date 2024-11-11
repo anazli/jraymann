@@ -3,35 +3,35 @@ package com.org.raymann.mathtools;
 import java.util.ArrayList;
 
 public class Matrix3D {
-    private ArrayList<Vec3> data;
+    private ArrayList<Vector3D> data;
     private static final int LENGTH = 3;
 
     public Matrix3D() {
         data = new ArrayList<>();
-        data.add(Vec3.create());
-        data.add(Vec3.create());
-        data.add(Vec3.create());
+        data.add(Vector3D.create());
+        data.add(Vector3D.create());
+        data.add(Vector3D.create());
     }
 
-    public Matrix3D(Vec3 row1, Vec3 row2, Vec3 row3) {
+    public Matrix3D(Vector3D row1, Vector3D row2, Vector3D row3) {
         data = new ArrayList<>();
-        data.add(Vec3.create(row1.x(), row1.y(), row1.z()));
-        data.add(Vec3.create(row2.x(), row2.y(), row2.z()));
-        data.add(Vec3.create(row3.x(), row3.y(), row3.z()));
+        data.add(Vector3D.create(row1.x(), row1.y(), row1.z()));
+        data.add(Vector3D.create(row2.x(), row2.y(), row2.z()));
+        data.add(Vector3D.create(row3.x(), row3.y(), row3.z()));
     }
 
     public static Matrix3D create() {
         return new Matrix3D();
     }
 
-    public static Matrix3D create(Vec3 row1, Vec3 row2, Vec3 row3) {
+    public static Matrix3D create(Vector3D row1, Vector3D row2, Vector3D row3) {
         return new Matrix3D(row1, row2, row3);
     }
 
     public static Matrix3D identity() {
-        return new Matrix3D(Vec3.create(1.f, 0.f, 0.f),
-                Vec3.create(0.f, 1.f, 0.f),
-                Vec3.create(0.f, 0.f, 1.f));
+        return new Matrix3D(Vector3D.create(1.f, 0.f, 0.f),
+                Vector3D.create(0.f, 1.f, 0.f),
+                Vector3D.create(0.f, 0.f, 1.f));
     }
 
     public void set(int row, int col, Float val) {
@@ -61,17 +61,17 @@ public class Matrix3D {
     }
 
     public Matrix3D times(Matrix3D m) {
-        Vec3 row1 = data.get(0);
-        Vec3 row2 = data.get(1);
-        Vec3 row3 = data.get(2);
+        Vector3D row1 = data.get(0);
+        Vector3D row2 = data.get(1);
+        Vector3D row3 = data.get(2);
 
-        Vec3 col1 = Vec3.create(m.get(0, 0), m.get(1, 0),m.get(2, 0));
-        Vec3 col2 = Vec3.create(m.get(0, 1), m.get(1, 1),m.get(2, 1));
-        Vec3 col3 = Vec3.create(m.get(0, 2), m.get(1, 2),m.get(2, 2));
+        Vector3D col1 = Vector3D.create(m.get(0, 0), m.get(1, 0),m.get(2, 0));
+        Vector3D col2 = Vector3D.create(m.get(0, 1), m.get(1, 1),m.get(2, 1));
+        Vector3D col3 = Vector3D.create(m.get(0, 2), m.get(1, 2),m.get(2, 2));
 
-        Vec3 returnRow1 = Vec3.create(row1.dot(col1), row1.dot(col2), row1.dot(col3));
-        Vec3 returnRow2 = Vec3.create(row2.dot(col1), row2.dot(col2), row2.dot(col3));
-        Vec3 returnRow3 = Vec3.create(row3.dot(col1), row3.dot(col2), row3.dot(col3));
+        Vector3D returnRow1 = Vector3D.create(row1.dot(col1), row1.dot(col2), row1.dot(col3));
+        Vector3D returnRow2 = Vector3D.create(row2.dot(col1), row2.dot(col2), row2.dot(col3));
+        Vector3D returnRow3 = Vector3D.create(row3.dot(col1), row3.dot(col2), row3.dot(col3));
 
         return Matrix3D.create(returnRow1, returnRow2, returnRow3);
     }

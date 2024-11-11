@@ -25,7 +25,7 @@ public class Vector4D {
         return new Vector4D(x, y, z, w);
     }
 
-    public static Vector4D fromVec3(Vec3 v) {
+    public static Vector4D fromVec3(Vector3D v) {
         return new Vector4D(v.x(), v.y(), v.z(), 0.f);
     }
 

@@ -1,15 +1,15 @@
 package com.org.raymann.color;
 
-import com.org.raymann.mathtools.Vec3;
+import com.org.raymann.mathtools.Vector3D;
 
 public class Color {
-    private Vec3 value;
+    private Vector3D value;
 
     public Color() {
-        this(Vec3.create());
+        this(Vector3D.create());
     }
 
-    public Color(Vec3 v) {
+    public Color(Vector3D v) {
         value = v;
     }
 
@@ -18,7 +18,7 @@ public class Color {
     }
 
     public static Color create(Float r, Float g, Float b) {
-        return new Color(Vec3.create(r,g,b));
+        return new Color(Vector3D.create(r,g,b));
     }
 
     public boolean equals(Color other) {
@@ -49,11 +49,11 @@ public class Color {
         return value.z();
     }
 
-    public Vec3 rgb() {
+    public Vector3D rgb() {
         return value;
     }
 
-    public void setRgb(Vec3 v) {
+    public void setRgb(Vector3D v) {
         value = v;
     }
 

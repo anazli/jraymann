@@ -1,8 +1,6 @@
 package com.org.raymann.container;
 
 import com.org.raymann.color.Color;
-import com.org.raymann.mathtools.Vec3;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

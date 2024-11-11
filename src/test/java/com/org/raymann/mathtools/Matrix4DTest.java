@@ -190,7 +190,7 @@ class Matrix4DTest {
 
     @Test
     public void givenTranslationMatrixWhenIsAppliedToVectorThenReturnedVectorIsCorrect() {
-        Vec3 v3 = Vec3.create(-3.0f, 4.0f, 5.0f);
+        Vector3D v3 = Vector3D.create(-3.0f, 4.0f, 5.0f);
         Matrix4D m = Matrix4D.translation(v3);
         Vector4D v4 = Vector4D.fromVec3(v3);
         v4 = m.times(v4);
@@ -217,7 +217,7 @@ class Matrix4DTest {
 
     @Test
     public void givenScalingMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
-        Vec3 v3 = Vec3.create(-4.0f, 6.0f, 8.0f);
+        Vector3D v3 = Vector3D.create(-4.0f, 6.0f, 8.0f);
         Matrix4D m = Matrix4D.scale(2.f, 3.f, 4.f);
         Vector4D v4 = Vector4D.fromVec3(v3);
         v4 = m.times(v4);
@@ -229,7 +229,7 @@ class Matrix4DTest {
 
     @Test
     public void givenScalingMatrixWhenInverseIsAppliedToVectorThenReturnedVectorIsCorrect() {
-        Vec3 v3 = Vec3.create(-4.0f, 6.0f, 8.0f);
+        Vector3D v3 = Vector3D.create(-4.0f, 6.0f, 8.0f);
         Matrix4D m = Matrix4D.scale(2.f, 3.f, 4.f);
         Vector4D v4 = Vector4D.fromVec3(v3);
         m = m.inverse();

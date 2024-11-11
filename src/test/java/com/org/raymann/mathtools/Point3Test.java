@@ -54,7 +54,7 @@ class Point3Test {
     @Test
     public void givenPointAndVectorWhenAddedThenResultedPointIsCorrect() {
         p.setAll(5.2f);
-        Vec3 u = Vec3.create(3.14159f, -45.9f, 200.5346f);
+        Vector3D u = Vector3D.create(3.14159f, -45.9f, 200.5346f);
         Point3 w = p.plus(u);
         assertEquals(8.34159f, w.x());
         assertEquals(-40.7f, w.y());
@@ -65,7 +65,7 @@ class Point3Test {
     public void givenTwoPointsWhenSubtractedThenResultedVectorIsCorrect() {
         p.setAll(5.2f);
         Point3 u = Point3.create(3.14159f, -45.9f, 200.5346f);
-        Vec3 w = p.minus(u);
+        Vector3D w = p.minus(u);
         assertEquals(2.0584097f, w.x());
         assertEquals(51.100002f, w.y());
         assertEquals(-195.33461f, w.z());
@@ -74,7 +74,7 @@ class Point3Test {
     @Test
     public void givenPointsAndVectorWhenSubtractedThenResultedPointIsCorrect() {
         p.setAll(5.2f);
-        Vec3 u = Vec3.create(3.14159f, -45.9f, 200.5346f);
+        Vector3D u = Vector3D.create(3.14159f, -45.9f, 200.5346f);
         Point3 w = p.minus(u);
         assertEquals(2.0584097f, w.x());
         assertEquals(51.100002f, w.y());

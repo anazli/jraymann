@@ -172,7 +172,7 @@ public class Matrix4D {
         return ret;
     }
 
-    public static Matrix4D translation(Vec3 v) {
+    public static Matrix4D translation(Vector3D v) {
         Matrix4D ret = Matrix4D.identity();
         ret.set(0, 3, v.x());
         ret.set(1, 3, v.y());
@@ -188,7 +188,7 @@ public class Matrix4D {
         return ret;
     }
 
-    public static Matrix4D scale(Vec3 v) {
+    public static Matrix4D scale(Vector3D v) {
         Matrix4D ret = Matrix4D.identity();
         ret.set(0, 0, v.x());
         ret.set(1, 1, v.y());

@@ -11,7 +11,7 @@ class Matrix3DTest {
     @Test
     public void givenNullMatrixWhenItIsCreatedThenIsZeroInit() {
         Float f = 0.f;
-        m = Matrix3D.create(Vec3.create(), Vec3.create(), Vec3.create());
+        m = Matrix3D.create(Vector3D.create(), Vector3D.create(), Vector3D.create());
         assertEquals(m.get(0, 0), f);
         assertEquals(m.get(0, 1), f);
         assertEquals(m.get(0, 2), f);
@@ -53,13 +53,13 @@ class Matrix3DTest {
 
     @Test
     public void givenTwoMatricesWhenAddedThenResultIsCorrect() {
-        m = Matrix3D.create(Vec3.create(1.36f, 1.28f, 1.f),
-                            Vec3.create(1.5f, 0.f, -1.f),
-                            Vec3.create(6.3f, 0.5f, 0.8f));
+        m = Matrix3D.create(Vector3D.create(1.36f, 1.28f, 1.f),
+                            Vector3D.create(1.5f, 0.f, -1.f),
+                            Vector3D.create(6.3f, 0.5f, 0.8f));
 
-        Matrix3D mr = Matrix3D.create(Vec3.create(9.f, -5.8f, 0.f),
-                                      Vec3.create(-6.5f, 5.3f, -1.5f),
-                                      Vec3.create(-5.f, 0.4f, 90.f));
+        Matrix3D mr = Matrix3D.create(Vector3D.create(9.f, -5.8f, 0.f),
+                                      Vector3D.create(-6.5f, 5.3f, -1.5f),
+                                      Vector3D.create(-5.f, 0.4f, 90.f));
 
         Matrix3D ms = m.plus(mr);
 
@@ -78,13 +78,13 @@ class Matrix3DTest {
 
     @Test
     public void givenTwoMatricesWhenMultipliedThenResultIsCorrect() {
-        m = Matrix3D.create(Vec3.create(1.36f, 1.28f, 0.85f),
-                Vec3.create(1.5f, 0.f, -6.58f),
-                Vec3.create(4.5f, 0.f, -3.f));
+        m = Matrix3D.create(Vector3D.create(1.36f, 1.28f, 0.85f),
+                Vector3D.create(1.5f, 0.f, -6.58f),
+                Vector3D.create(4.5f, 0.f, -3.f));
 
-        Matrix3D mr = Matrix3D.create(Vec3.create(9.f, -5.8f, -4.5f),
-                Vec3.create(-6.5f, 5.3f, 20.f),
-                Vec3.create(8.6f, 33.f, -5.f));
+        Matrix3D mr = Matrix3D.create(Vector3D.create(9.f, -5.8f, -4.5f),
+                Vector3D.create(-6.5f, 5.3f, 20.f),
+                Vector3D.create(8.6f, 33.f, -5.f));
 
         Matrix3D ms = m.times(mr);
 
@@ -103,9 +103,9 @@ class Matrix3DTest {
 
     @Test
     public void givenNotNullMatrixWhenTransposeIsReturnedThenItIsCorrect() {
-        m = Matrix3D.create(Vec3.create(1.36f, 1.28f, 0.85f),
-                Vec3.create(1.5f, 0.f, -6.58f),
-                Vec3.create(4.5f, 0.f, -3.f));
+        m = Matrix3D.create(Vector3D.create(1.36f, 1.28f, 0.85f),
+                Vector3D.create(1.5f, 0.f, -6.58f),
+                Vector3D.create(4.5f, 0.f, -3.f));
 
         Matrix3D mt = m.transpose();
 

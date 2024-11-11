@@ -1,26 +1,26 @@
 package com.org.raymann.mathtools;
 
-public class Vec3 {
+public class Vector3D {
     private Float x;
     private Float y;
     private Float z;
 
-    public Vec3() {
+    public Vector3D() {
         this(0.f, 0.f, 0.f);
     }
 
-    public Vec3(Float x, Float y, Float z) {
+    public Vector3D(Float x, Float y, Float z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public static Vec3 create() {
-        return new Vec3();
+    public static Vector3D create() {
+        return new Vector3D();
     }
 
-    public static Vec3 create(Float x, Float y, Float z) {
-        return new Vec3(x, y, z);
+    public static Vector3D create(Float x, Float y, Float z) {
+        return new Vector3D(x, y, z);
     }
 
     public void setX(Float x) {
@@ -80,54 +80,54 @@ public class Vec3 {
         return (float) d;
     }
 
-    public Vec3 normalVector() {
+    public Vector3D normalVector() {
         Float l = length();
-        return new Vec3(x / l, y / l, z / l);
+        return new Vector3D(x / l, y / l, z / l);
     }
 
-    public Vec3 plus(Vec3 v) {
-        return new Vec3(x + v.x(), y + v.y(), z + v.z());
+    public Vector3D plus(Vector3D v) {
+        return new Vector3D(x + v.x(), y + v.y(), z + v.z());
     }
 
-    public Vec3 minus(Vec3 v) {
-        return new Vec3(x - v.x(), y - v.y(), z - v.z());
+    public Vector3D minus(Vector3D v) {
+        return new Vector3D(x - v.x(), y - v.y(), z - v.z());
     }
 
-    public Vec3 times(Vec3 v) {
-        return new Vec3(x * v.x(), y * v.y(), z * v.z());
+    public Vector3D times(Vector3D v) {
+        return new Vector3D(x * v.x(), y * v.y(), z * v.z());
     }
 
-    public Vec3 times(Float f) {
-        return new Vec3(x * f, y * f, z * f);
+    public Vector3D times(Float f) {
+        return new Vector3D(x * f, y * f, z * f);
     }
 
-    public Vec3 over(Vec3 v) {
-        return new Vec3(x / v.x(), y / v.y(), z / v.z());
+    public Vector3D over(Vector3D v) {
+        return new Vector3D(x / v.x(), y / v.y(), z / v.z());
     }
 
-    public Vec3 over(Float f) {
-        return new Vec3(x / f, y / f, z / f);
+    public Vector3D over(Float f) {
+        return new Vector3D(x / f, y / f, z / f);
     }
 
-    public Float dot(Vec3 v) {
+    public Float dot(Vector3D v) {
         return x * v.x() + y * v.y() + z * v.z();
     }
 
-    public Vec3 cross(Vec3 v) {
+    public Vector3D cross(Vector3D v) {
         Float a = y * v.z() - z * v.y();
         Float b = z * v.x() - x * v.z();
         Float c = x * v.y() - y * v.x();
-        return new Vec3(a, b, c);
+        return new Vector3D(a, b, c);
     }
 
-    public boolean equals(Vec3 v) {
+    public boolean equals(Vector3D v) {
         return (Math.abs(x - v.x()) < Constants.EPSILON) &&
                 (Math.abs(y - v.y()) < Constants.EPSILON) &&
                 (Math.abs(z - v.z()) < Constants.EPSILON);
     }
 
-    public Vec3 opposite() {
-        return new Vec3(-x, -y, -z);
+    public Vector3D opposite() {
+        return new Vector3D(-x, -y, -z);
     }
 
     public String getInfoStr() {

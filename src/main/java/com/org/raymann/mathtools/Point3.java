@@ -57,15 +57,15 @@ public class Point3 {
                 (Math.abs(z - p.z()) < Constants.EPSILON);
     }
 
-    public Point3 plus(Vec3 v) {
+    public Point3 plus(Vector3D v) {
         return new Point3(x + v.x(), y + v.y(), z + v.z());
     }
 
-    public Vec3 minus(Point3 p) {
-        return new Vec3(x - p.x(), y - p.y(), z - p.z());
+    public Vector3D minus(Point3 p) {
+        return new Vector3D(x - p.x(), y - p.y(), z - p.z());
     }
 
-    public Point3 minus(Vec3 v) {
+    public Point3 minus(Vector3D v) {
         return new Point3(x - v.x(), y - v.y(), z - v.z());
     }
 }
