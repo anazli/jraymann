@@ -1,16 +1,16 @@
 package com.org.raymann.mathtools;
 
 public class Vector4D {
-    private Float x;
-    private Float y;
-    private Float z;
-    private Float w;
+    private float x;
+    private float y;
+    private float z;
+    private float w;
 
     public Vector4D() {
         this(0.f, 0.f, 0.f, 0.f);
     }
 
-    public Vector4D(Float x, Float y, Float z, Float w) {
+    public Vector4D(float x, float y, float z, float w) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -21,7 +21,7 @@ public class Vector4D {
         return new Vector4D();
     }
 
-    public static Vector4D create(Float x, Float y, Float z, Float w) {
+    public static Vector4D create(float x, float y, float z, float w) {
         return new Vector4D(x, y, z, w);
     }
 
@@ -33,43 +33,43 @@ public class Vector4D {
         return new Vector4D(p.x(), p.y(), p.z(), 1.f);
     }
 
-    public void setX(Float x) {
+    public void setX(float x) {
         this.x = x;
     }
 
-    public void setY(Float y) {
+    public void setY(float y) {
         this.y = y;
     }
 
-    public void setZ(Float z) {
+    public void setZ(float z) {
         this.z = z;
     }
 
-    public void setW(Float w) {
+    public void setW(float w) {
         this.w = w;
     }
 
-    public void setAll(Float f) {
+    public void setAll(float f) {
         x = y = z = w = f;
     }
 
-    public Float x() {
+    public float x() {
         return x;
     }
 
-    public Float y() {
+    public float y() {
         return y;
     }
 
-    public Float z() {
+    public float z() {
         return z;
     }
 
-    public Float w() {
+    public float w() {
         return w;
     }
 
-    public void set(int index, Float value) {
+    public void set(int index, float value) {
         if(index > 3 || index < 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -81,7 +81,7 @@ public class Vector4D {
         }
     }
 
-    public Float get(int index) {
+    public float get(int index) {
         if(index < 0 || index > 3) {
             throw new IndexOutOfBoundsException();
         }
@@ -97,13 +97,13 @@ public class Vector4D {
         return w;
     }
 
-    public Float length() {
+    public float length() {
         double d = Math.sqrt((x * x) + (y * y) + (z * z) + (w * w));
         return (float) d;
     }
 
     public Vector4D normalVector() {
-        Float l = length();
+        float l = length();
         return new Vector4D(x / l, y / l, z / l, w / l);
     }
 
@@ -119,7 +119,7 @@ public class Vector4D {
         return new Vector4D(x * v.x(), y * v.y(), z * v.z(), w * v.w());
     }
 
-    public Vector4D times(Float f) {
+    public Vector4D times(float f) {
         return new Vector4D(x * f, y * f, z * f, w * f);
     }
 
@@ -127,11 +127,11 @@ public class Vector4D {
         return new Vector4D(x / v.x(), y / v.y(), z / v.z(), w / v.w());
     }
 
-    public Vector4D over(Float f) {
+    public Vector4D over(float f) {
         return new Vector4D(x / f, y / f, z / f, w / f);
     }
 
-    public Float dot(Vector4D v) {
+    public float dot(Vector4D v) {
         return x * v.x() + y * v.y() + z * v.z() + w * v.w();
     }
 

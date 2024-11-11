@@ -34,14 +34,14 @@ public class Matrix3D {
                 Vector3D.create(0.f, 0.f, 1.f));
     }
 
-    public void set(int row, int col, Float val) {
+    public void set(int row, int col, float val) {
         if(row >= LENGTH || row < 0) {
             throw new IndexOutOfBoundsException();
         }
         data.get(row).set(col, val);
     }
 
-    public Float get(int row, int col) {
+    public float get(int row, int col) {
         if(row >= LENGTH || row < 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -97,7 +97,7 @@ public class Matrix3D {
         return get(0,0) + get(1, 1) + get(2,2);
     }
 
-    public Float determinant() {
+    public float determinant() {
         float r1 = get(0,0) *
                 (get(1,1) * get(2,2) - get(1,2) * get(2,1));
         float r2 = get(0,1) *

@@ -37,14 +37,14 @@ public class Matrix4D {
                             Vector4D.create(0.f, 0.f, 0.f, 1.f));
     }
 
-    public void set(int row, int col, Float val) {
+    public void set(int row, int col, float val) {
         if(row >= LENGTH || row < 0) {
             throw new IndexOutOfBoundsException();
         }
         data.get(row).set(col, val);
     }
 
-    public Float get(int row, int col) {
+    public float get(int row, int col) {
         if(row >= LENGTH || row < 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -122,7 +122,7 @@ public class Matrix4D {
         return get(0,0) + get(1, 1) + get(2,2) + get(3,3);
     }
 
-    public Float determinant() {
+    public float determinant() {
         float det = 0.f;
         for(int j = 0 ; j < LENGTH ; ++j) {
             det += data.get(0).get(j) * coFactor(0, j);
@@ -146,7 +146,7 @@ public class Matrix4D {
         return m;
     }
 
-    public Float coFactor(int i, int j) {
+    public float coFactor(int i, int j) {
         Matrix3D m = minor(i, j);
         return (float)Math.pow(-1.f, i + j + 2) * m.determinant();
     }
@@ -164,7 +164,7 @@ public class Matrix4D {
         return inv;
     }
 
-    public static Matrix4D translation(Float x, Float y, Float z) {
+    public static Matrix4D translation(float x, float y, float z) {
         Matrix4D ret = Matrix4D.identity();
         ret.set(0, 3, x);
         ret.set(1, 3, y);
@@ -180,7 +180,7 @@ public class Matrix4D {
         return ret;
     }
 
-    public static Matrix4D scale(Float x, Float y, Float z) {
+    public static Matrix4D scale(float x, float y, float z) {
         Matrix4D ret = Matrix4D.identity();
         ret.set(0, 0, x);
         ret.set(1, 1, y);
@@ -196,7 +196,7 @@ public class Matrix4D {
         return ret;
     }
 
-    public static Matrix4D rotationOverX(Float rad) {
+    public static Matrix4D rotationOverX(float rad) {
         Matrix4D ret = Matrix4D.identity();
         ret.set(1, 1, (float)Math.cos(rad));
         ret.set(1, 2, -(float)Math.sin(rad));
@@ -205,7 +205,7 @@ public class Matrix4D {
         return ret;
     }
 
-    public static Matrix4D rotationOverY(Float rad) {
+    public static Matrix4D rotationOverY(float rad) {
         Matrix4D ret = Matrix4D.identity();
         ret.set(0, 0, (float)Math.cos(rad));
         ret.set(0, 2, (float)Math.sin(rad));
@@ -214,7 +214,7 @@ public class Matrix4D {
         return ret;
     }
 
-    public static Matrix4D rotationOverZ(Float rad) {
+    public static Matrix4D rotationOverZ(float rad) {
         Matrix4D ret = Matrix4D.identity();
         ret.set(0, 0, (float)Math.cos(rad));
         ret.set(0, 1, -(float)Math.sin(rad));

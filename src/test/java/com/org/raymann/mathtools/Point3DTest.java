@@ -22,9 +22,9 @@ class Point3DTest {
 
     @Test
     public void givenFloatWhenSetsCoordinateThenItIsCorrectlyUpdated() {
-        Float x = -0.5f;
-        Float y = 14.4355f;
-        Float z = -3.14159f;
+        float x = -0.5f;
+        float y = 14.4355f;
+        float z = -3.14159f;
         p.setX(x);
         p.setY(y);
         p.setZ(z);
@@ -35,7 +35,7 @@ class Point3DTest {
 
     @Test
     public void givenFloatWhenSetsAllCoordsThenTheyAreCorrectlyUpdated() {
-        Float f = 3.14159f;
+        float f = 3.14159f;
         p.setAll(f);
         assertEquals(f, p.x());
         assertEquals(f, p.y());

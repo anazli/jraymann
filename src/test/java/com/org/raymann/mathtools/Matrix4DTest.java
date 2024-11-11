@@ -10,7 +10,7 @@ class Matrix4DTest {
 
     @Test
     public void givenNullMatrixWhenItIsCreatedThenIsZeroInit() {
-        Float f = 0.f;
+        float f = 0.f;
         m = Matrix4D.create(Vector4D.create(), Vector4D.create(), Vector4D.create(), Vector4D.create());
         assertEquals(m.get(0, 0), f);
         assertEquals(m.get(0, 1), f);
@@ -28,7 +28,7 @@ class Matrix4DTest {
 
     @Test
     public void givenNullMatrixWhenIndexIsWrongThenItThrows() {
-        Float f = 5.f;
+        float f = 5.f;
         m = Matrix4D.create();
         IndexOutOfBoundsException exc1 = assertThrows(IndexOutOfBoundsException.class,
                 () -> {m.set(-1, 0, f);});

@@ -35,7 +35,7 @@ class Vector3DTest {
     }
 
     @Test
-    public void givenFloatWhenSetsAllCoordsThenTheyAreCorrectlyUpdated() {
+    public void givenfloatWhenSetsAllCoordsThenTheyAreCorrectlyUpdated() {
         float f = 3.14159f;
         v.setAll(f);
         assertEquals(f, v.x());
@@ -93,7 +93,7 @@ class Vector3DTest {
 
     @Test
     public void givenVectorAndFloatWhenMultipliedThenResultedVectorIsCorrect() {
-        Float f = 9.325f;
+        float f = 9.325f;
         v = Vector3D.create(9.2f, -15.f, 7.5f);
         Vector3D w = v.times(f);
         assertEquals(85.78999f, w.x());
@@ -113,7 +113,7 @@ class Vector3DTest {
 
     @Test
     public void givenVectorAndFloatWhenDividedThenResultedVectorIsCorrect() {
-        Float f = 9.325f;
+        float f = 9.325f;
         v = Vector3D.create(9.2f, -15.f, 7.5f);
         Vector3D w = v.over(f);
         assertEquals(0.98659515f, w.x());

@@ -26,14 +26,14 @@ public class Matrix2D {
         return new Matrix2D(row1, row2);
     }
 
-    public void set(int row, int col, Float val) {
+    public void set(int row, int col, float val) {
         if(row >= LENGTH || row < 0) {
             throw new IndexOutOfBoundsException();
         }
         data.get(row).set(col, val);
     }
 
-    public Float get(int row, int col) {
+    public float get(int row, int col) {
         if(row >= LENGTH || row < 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -63,7 +63,7 @@ public class Matrix2D {
         return ret;
     }
 
-    public Float determinant() {
+    public float determinant() {
         return get(0, 0) * get(1, 1) -
                 get(0, 1) * get(1, 0);
     }

@@ -102,7 +102,7 @@ class Vector4DTest {
 
     @Test
     public void givenVectorAndFloatWhenMultipliedThenResultedVectorIsCorrect() {
-        Float f = 9.325f;
+        float f = 9.325f;
         v = Vector4D.create(9.2f, -15.f, 7.5f, 0.f);
         Vector4D w = v.times(f);
         assertEquals(85.78999f, w.x());
@@ -124,7 +124,7 @@ class Vector4DTest {
 
     @Test
     public void givenVectorAndFloatWhenDividedThenResultedVectorIsCorrect() {
-        Float f = 9.325f;
+        float f = 9.325f;
         v = Vector4D.create(9.2f, -15.f, 7.5f, 0.f);
         Vector4D w = v.over(f);
         assertEquals(0.98659515f, w.x());

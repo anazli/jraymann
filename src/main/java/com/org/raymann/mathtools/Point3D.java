@@ -1,15 +1,15 @@
 package com.org.raymann.mathtools;
 
 public class Point3D {
-    private Float x;
-    private Float y;
-    private Float z;
+    private float x;
+    private float y;
+    private float z;
 
     public Point3D() {
         this(0.f, 0.f, 0.f);
     }
 
-    public Point3D(Float x, Float y, Float z) {
+    public Point3D(float x, float y, float z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -19,7 +19,7 @@ public class Point3D {
         return new Point3D();
     }
 
-    public static Point3D create(Float x, Float y, Float z) {
+    public static Point3D create(float x, float y, float z) {
         return new Point3D(x,y,z);
     }
 
@@ -27,15 +27,15 @@ public class Point3D {
         return new Point3D(p.x(), p.y(), p.z());
     }
 
-    public void setX(Float x) {
+    public void setX(float x) {
         this.x = x;
     }
 
-    public void setY(Float y) {
+    public void setY(float y) {
         this.y = y;
     }
 
-    public void setZ(Float z) {
+    public void setZ(float z) {
         this.z = z;
     }
 
@@ -45,19 +45,19 @@ public class Point3D {
         z = p.z();
     }
 
-    public void setAll(Float f) {
+    public void setAll(float f) {
         x = y = z = f;
     }
 
-    public Float x() {
+    public float x() {
         return x;
     }
 
-    public Float y() {
+    public float y() {
         return y;
     }
 
-    public Float z() {
+    public float z() {
         return z;
     }
 

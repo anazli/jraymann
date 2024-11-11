@@ -1,15 +1,15 @@
 package com.org.raymann.mathtools;
 
 public class Vector3D {
-    private Float x;
-    private Float y;
-    private Float z;
+    private float x;
+    private float y;
+    private float z;
 
     public Vector3D() {
         this(0.f, 0.f, 0.f);
     }
 
-    public Vector3D(Float x, Float y, Float z) {
+    public Vector3D(float x, float y, float z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -19,7 +19,7 @@ public class Vector3D {
         return new Vector3D();
     }
 
-    public static Vector3D create(Float x, Float y, Float z) {
+    public static Vector3D create(float x, float y, float z) {
         return new Vector3D(x, y, z);
     }
 
@@ -27,15 +27,15 @@ public class Vector3D {
         return new Vector3D(v.x(), v.y(), v.z());
     }
 
-    public void setX(Float x) {
+    public void setX(float x) {
         this.x = x;
     }
 
-    public void setY(Float y) {
+    public void setY(float y) {
         this.y = y;
     }
 
-    public void setZ(Float z) {
+    public void setZ(float z) {
         this.z = z;
     }
 
@@ -45,23 +45,23 @@ public class Vector3D {
         z = v.z();
     }
 
-    public void setAll(Float f) {
+    public void setAll(float f) {
         x = y = z = f;
     }
 
-    public Float x() {
+    public float x() {
         return x;
     }
 
-    public Float y() {
+    public float y() {
         return y;
     }
 
-    public Float z() {
+    public float z() {
         return z;
     }
 
-    public void set(int index, Float value) {
+    public void set(int index, float value) {
         if(index > 2 || index < 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -72,7 +72,7 @@ public class Vector3D {
         }
     }
 
-    public Float get(int index) {
+    public float get(int index) {
         if(index < 0 || index > 2) {
             throw new IndexOutOfBoundsException();
         }
@@ -85,13 +85,13 @@ public class Vector3D {
         return z;
     }
 
-    public Float length() {
+    public float length() {
         double d = Math.sqrt((x * x) + (y * y) + (z * z));
         return (float) d;
     }
 
     public Vector3D normalVector() {
-        Float l = length();
+        float l = length();
         return new Vector3D(x / l, y / l, z / l);
     }
 
@@ -107,7 +107,7 @@ public class Vector3D {
         return new Vector3D(x * v.x(), y * v.y(), z * v.z());
     }
 
-    public Vector3D times(Float f) {
+    public Vector3D times(float f) {
         return new Vector3D(x * f, y * f, z * f);
     }
 
@@ -115,18 +115,18 @@ public class Vector3D {
         return new Vector3D(x / v.x(), y / v.y(), z / v.z());
     }
 
-    public Vector3D over(Float f) {
+    public Vector3D over(float f) {
         return new Vector3D(x / f, y / f, z / f);
     }
 
-    public Float dot(Vector3D v) {
+    public float dot(Vector3D v) {
         return x * v.x() + y * v.y() + z * v.z();
     }
 
     public Vector3D cross(Vector3D v) {
-        Float a = y * v.z() - z * v.y();
-        Float b = z * v.x() - x * v.z();
-        Float c = x * v.y() - y * v.x();
+        float a = y * v.z() - z * v.y();
+        float b = z * v.x() - x * v.z();
+        float c = x * v.y() - y * v.x();
         return new Vector3D(a, b, c);
     }
 

@@ -9,7 +9,7 @@ class Matrix2DTest {
 
     @Test
     public void givenNullMatrixWhenItIsCreatedThenIsZeroInit() {
-        Float f = 0.f;
+        float f = 0.f;
         m = Matrix2D.create(Vector2D.create(), Vector2D.create());
         assertEquals(f, m.get(0, 0));
         assertEquals(f, m.get(0, 1));
@@ -19,7 +19,7 @@ class Matrix2DTest {
 
     @Test
     public void givenNullMatrixWhenIndexIsWrongThenItThrows() {
-        Float f = 5.f;
+        float f = 5.f;
         m = Matrix2D.create();
         IndexOutOfBoundsException exc1 = assertThrows(IndexOutOfBoundsException.class,
                 () -> {m.set(-1, 0, f);});
@@ -34,7 +34,7 @@ class Matrix2DTest {
 
     @Test
     public void givenNotNullMatrixWhenElementsAreSetThenAreReturnedCorrectly() {
-        Float f = 5.f;
+        float f = 5.f;
         m = Matrix2D.create();
         m.set(0, 1, f);
         m.set(1, 0, f);
@@ -44,8 +44,8 @@ class Matrix2DTest {
 
     @Test
     public void givenTwoMatricesWhenAddedThenResultIsCorrect() {
-        Float f1 = 3.14f;
-        Float f2 = -9.45f;
+        float f1 = 3.14f;
+        float f2 = -9.45f;
         m = Matrix2D.create();
         Matrix2D mr = Matrix2D.create(Vector2D.create(f1, f2), Vector2D.create(f2, f1));
         Matrix2D ms = m.plus(mr);
@@ -57,8 +57,8 @@ class Matrix2DTest {
 
     @Test
     public void givenTwoMatricesWhenSubtractedThenResultIsCorrect() {
-        Float f1 = 3.14f;
-        Float f2 = -9.45f;
+        float f1 = 3.14f;
+        float f2 = -9.45f;
         m = Matrix2D.create();
         Matrix2D mr = Matrix2D.create(Vector2D.create(f1, f2), Vector2D.create(f2, f1));
         Matrix2D ms = m.minus(mr);

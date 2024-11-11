@@ -37,7 +37,7 @@ public class Ray {
         return direction;
     }
 
-    public Point3D position(Float t) {
+    public Point3D position(float t) {
         return origin().plus(direction().times(t));
     }
 }

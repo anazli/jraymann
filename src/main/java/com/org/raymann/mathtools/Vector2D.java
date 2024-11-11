@@ -1,14 +1,14 @@
 package com.org.raymann.mathtools;
 
 public class Vector2D {
-    private Float x;
-    private Float y;
+    private float x;
+    private float y;
 
     public Vector2D() {
         this(0.f, 0.f);
     }
 
-    public Vector2D(Float x, Float y) {
+    public Vector2D(float x, float y) {
         this.x = x;
         this.y = y;
     }
@@ -17,23 +17,23 @@ public class Vector2D {
         return new Vector2D();
     }
 
-    public static Vector2D create(Float x, Float y) {
+    public static Vector2D create(float x, float y) {
         return new Vector2D(x, y);
     }
 
-    public void setX(Float x) {
+    public void setX(float x) {
         this.x = x;
     }
 
-    public void setY(Float y) {
+    public void setY(float y) {
         this.y = y;
     }
 
-    public void setAll(Float f) {
+    public void setAll(float f) {
         x = y = f;
     }
 
-    public void set(int index, Float value) {
+    public void set(int index, float value) {
         if(index > 1 || index < 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -43,7 +43,7 @@ public class Vector2D {
         }
     }
 
-    public Float get(int index) {
+    public float get(int index) {
         if(index < 0 || index > 1) {
             throw new IndexOutOfBoundsException();
         }
@@ -53,21 +53,21 @@ public class Vector2D {
         return y;
     }
 
-    public Float x() {
+    public float x() {
         return x;
     }
 
-    public Float y() {
+    public float y() {
         return y;
     }
 
-    public Float length() {
+    public float length() {
         double d = Math.sqrt((x * x) + (y * y));
         return (float) d;
     }
 
     public Vector2D normalVector() {
-        Float l = length();
+        float l = length();
         return new Vector2D(x / l, y / l);
     }
 
@@ -83,7 +83,7 @@ public class Vector2D {
         return new Vector2D(x * v.x(), y * v.y());
     }
 
-    public Vector2D times(Float f) {
+    public Vector2D times(float f) {
         return new Vector2D(x * f, y * f);
     }
 
@@ -91,11 +91,11 @@ public class Vector2D {
         return new Vector2D(x / v.x(), y / v.y());
     }
 
-    public Vector2D over(Float f) {
+    public Vector2D over(float f) {
         return new Vector2D(x / f, y / f);
     }
 
-    public Float dot(Vector2D v) {
+    public float dot(Vector2D v) {
         return x * v.x() + y * v.y();
     }
 
