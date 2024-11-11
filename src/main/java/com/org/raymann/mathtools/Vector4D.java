@@ -25,11 +25,11 @@ public class Vector4D {
         return new Vector4D(x, y, z, w);
     }
 
-    public static Vector4D fromVec3(Vector3D v) {
+    public static Vector4D fromVector3D(Vector3D v) {
         return new Vector4D(v.x(), v.y(), v.z(), 0.f);
     }
 
-    public static Vector4D fromPoint3(Point3D p) {
+    public static Vector4D fromPoint3D(Point3D p) {
         return new Vector4D(p.x(), p.y(), p.z(), 1.f);
     }
 
