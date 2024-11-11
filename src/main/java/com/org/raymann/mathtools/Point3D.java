@@ -23,6 +23,10 @@ public class Point3D {
         return new Point3D(x,y,z);
     }
 
+    public static Point3D create(Point3D p) {
+        return new Point3D(p.x(), p.y(), p.z());
+    }
+
     public void setX(Float x) {
         this.x = x;
     }
@@ -33,6 +37,12 @@ public class Point3D {
 
     public void setZ(Float z) {
         this.z = z;
+    }
+
+    public void set(Point3D p) {
+        x = p.x();
+        y = p.y();
+        z = p.z();
     }
 
     public void setAll(Float f) {

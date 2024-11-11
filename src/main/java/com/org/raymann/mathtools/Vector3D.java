@@ -23,6 +23,10 @@ public class Vector3D {
         return new Vector3D(x, y, z);
     }
 
+    public static Vector3D create(Vector3D v) {
+        return new Vector3D(v.x(), v.y(), v.z());
+    }
+
     public void setX(Float x) {
         this.x = x;
     }
@@ -33,6 +37,12 @@ public class Vector3D {
 
     public void setZ(Float z) {
         this.z = z;
+    }
+
+    public void set(Vector3D v) {
+        x = v.x();
+        y = v.y();
+        z = v.z();
     }
 
     public void setAll(Float f) {
