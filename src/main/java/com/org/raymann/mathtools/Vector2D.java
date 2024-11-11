@@ -1,24 +1,24 @@
 package com.org.raymann.mathtools;
 
-public class Vec2 {
+public class Vector2D {
     private Float x;
     private Float y;
 
-    public Vec2() {
+    public Vector2D() {
         this(0.f, 0.f);
     }
 
-    public Vec2(Float x, Float y) {
+    public Vector2D(Float x, Float y) {
         this.x = x;
         this.y = y;
     }
 
-    public static Vec2 create() {
-        return new Vec2();
+    public static Vector2D create() {
+        return new Vector2D();
     }
 
-    public static Vec2 create(Float x, Float y) {
-        return new Vec2(x, y);
+    public static Vector2D create(Float x, Float y) {
+        return new Vector2D(x, y);
     }
 
     public void setX(Float x) {
@@ -66,46 +66,46 @@ public class Vec2 {
         return (float) d;
     }
 
-    public Vec2 normalVector() {
+    public Vector2D normalVector() {
         Float l = length();
-        return new Vec2(x / l, y / l);
+        return new Vector2D(x / l, y / l);
     }
 
-    public Vec2 plus(Vec2 v) {
-        return new Vec2(x + v.x(), y + v.y());
+    public Vector2D plus(Vector2D v) {
+        return new Vector2D(x + v.x(), y + v.y());
     }
 
-    public Vec2 minus(Vec2 v) {
-        return new Vec2(x - v.x(), y - v.y());
+    public Vector2D minus(Vector2D v) {
+        return new Vector2D(x - v.x(), y - v.y());
     }
 
-    public Vec2 times(Vec2 v) {
-        return new Vec2(x * v.x(), y * v.y());
+    public Vector2D times(Vector2D v) {
+        return new Vector2D(x * v.x(), y * v.y());
     }
 
-    public Vec2 times(Float f) {
-        return new Vec2(x * f, y * f);
+    public Vector2D times(Float f) {
+        return new Vector2D(x * f, y * f);
     }
 
-    public Vec2 over(Vec2 v) {
-        return new Vec2(x / v.x(), y / v.y());
+    public Vector2D over(Vector2D v) {
+        return new Vector2D(x / v.x(), y / v.y());
     }
 
-    public Vec2 over(Float f) {
-        return new Vec2(x / f, y / f);
+    public Vector2D over(Float f) {
+        return new Vector2D(x / f, y / f);
     }
 
-    public Float dot(Vec2 v) {
+    public Float dot(Vector2D v) {
         return x * v.x() + y * v.y();
     }
 
-    public boolean equals(Vec2 v) {
+    public boolean equals(Vector2D v) {
         return (Math.abs(x - v.x()) < Constants.EPSILON) &&
                 (Math.abs(y - v.y()) < Constants.EPSILON);
     }
 
-    public Vec2 opposite() {
-        return new Vec2(-x, -y);
+    public Vector2D opposite() {
+        return new Vector2D(-x, -y);
     }
 
     public String getInfoStr() {

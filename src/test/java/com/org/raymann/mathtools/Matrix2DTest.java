@@ -10,7 +10,7 @@ class Matrix2DTest {
     @Test
     public void givenNullMatrixWhenItIsCreatedThenIsZeroInit() {
         Float f = 0.f;
-        m = Matrix2D.create(Vec2.create(), Vec2.create());
+        m = Matrix2D.create(Vector2D.create(), Vector2D.create());
         assertEquals(f, m.get(0, 0));
         assertEquals(f, m.get(0, 1));
         assertEquals(f, m.get(1, 0));
@@ -47,7 +47,7 @@ class Matrix2DTest {
         Float f1 = 3.14f;
         Float f2 = -9.45f;
         m = Matrix2D.create();
-        Matrix2D mr = Matrix2D.create(Vec2.create(f1, f2), Vec2.create(f2, f1));
+        Matrix2D mr = Matrix2D.create(Vector2D.create(f1, f2), Vector2D.create(f2, f1));
         Matrix2D ms = m.plus(mr);
         assertEquals(f1, ms.get( 0,0));
         assertEquals(f2, ms.get( 0,1));
@@ -60,7 +60,7 @@ class Matrix2DTest {
         Float f1 = 3.14f;
         Float f2 = -9.45f;
         m = Matrix2D.create();
-        Matrix2D mr = Matrix2D.create(Vec2.create(f1, f2), Vec2.create(f2, f1));
+        Matrix2D mr = Matrix2D.create(Vector2D.create(f1, f2), Vector2D.create(f2, f1));
         Matrix2D ms = m.minus(mr);
         assertEquals(-f1, ms.get(0,0));
         assertEquals(-f2, ms.get(0,1));
@@ -70,15 +70,15 @@ class Matrix2DTest {
 
     @Test
     public void givenNotNullMatrixWhenDeterminantIsCalculatedTheItIsCorrect() {
-        m = Matrix2D.create(Vec2.create(5.36f, 2.28f), Vec2.create(-1.5f, 85.f));
+        m = Matrix2D.create(Vector2D.create(5.36f, 2.28f), Vector2D.create(-1.5f, 85.f));
         assertEquals(459.02002f, m.determinant(), Constants.EPSILON);
 
     }
 
     @Test
     public void givenTwoMatricesWhenMultipliedThenResultIsCorrect() {
-        m = Matrix2D.create(Vec2.create(1.36f, 1.28f), Vec2.create(1.5f, 0.f));
-        Matrix2D mr = Matrix2D.create(Vec2.create(9.f, -5.8f), Vec2.create(-6.5f, 5.3f));
+        m = Matrix2D.create(Vector2D.create(1.36f, 1.28f), Vector2D.create(1.5f, 0.f));
+        Matrix2D mr = Matrix2D.create(Vector2D.create(9.f, -5.8f), Vector2D.create(-6.5f, 5.3f));
         Matrix2D mp = m.times(mr);
         float f1 = 3.92f;
         float f2 = -1.104f;

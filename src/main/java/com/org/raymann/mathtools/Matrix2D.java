@@ -3,26 +3,26 @@ package com.org.raymann.mathtools;
 import java.util.ArrayList;
 
 public class Matrix2D {
-    private ArrayList<Vec2> data;
+    private ArrayList<Vector2D> data;
     private static final int LENGTH = 2;
 
     public Matrix2D() {
         data = new ArrayList<>();
-        data.add(Vec2.create());
-        data.add(Vec2.create());
+        data.add(Vector2D.create());
+        data.add(Vector2D.create());
     }
 
-    public Matrix2D(Vec2 row1, Vec2 row2) {
+    public Matrix2D(Vector2D row1, Vector2D row2) {
         data = new ArrayList<>();
-        data.add(Vec2.create(row1.x(), row1.y()));
-        data.add(Vec2.create(row2.x(), row2.y()));
+        data.add(Vector2D.create(row1.x(), row1.y()));
+        data.add(Vector2D.create(row2.x(), row2.y()));
     }
 
     public static Matrix2D create() {
         return new Matrix2D();
     }
 
-    public static Matrix2D create(Vec2 row1, Vec2 row2) {
+    public static Matrix2D create(Vector2D row1, Vector2D row2) {
         return new Matrix2D(row1, row2);
     }
 
