@@ -3,38 +3,38 @@ package com.org.raymann.mathtools;
 import java.util.ArrayList;
 
 public class Matrix4D {
-    private ArrayList<Vec4> data;
+    private ArrayList<Vector4D> data;
     private static final int LENGTH = 4;
 
     public Matrix4D() {
         data = new ArrayList<>();
-        data.add(Vec4.create());
-        data.add(Vec4.create());
-        data.add(Vec4.create());
-        data.add(Vec4.create());
+        data.add(Vector4D.create());
+        data.add(Vector4D.create());
+        data.add(Vector4D.create());
+        data.add(Vector4D.create());
     }
 
-    public Matrix4D(Vec4 row1, Vec4 row2, Vec4 row3, Vec4 row4) {
+    public Matrix4D(Vector4D row1, Vector4D row2, Vector4D row3, Vector4D row4) {
         data = new ArrayList<>();
-        data.add(Vec4.create(row1.x(), row1.y(), row1.z(), row1.w()));
-        data.add(Vec4.create(row2.x(), row2.y(), row2.z(), row2.w()));
-        data.add(Vec4.create(row3.x(), row3.y(), row3.z(), row3.w()));
-        data.add(Vec4.create(row4.x(), row4.y(), row4.z(), row4.w()));
+        data.add(Vector4D.create(row1.x(), row1.y(), row1.z(), row1.w()));
+        data.add(Vector4D.create(row2.x(), row2.y(), row2.z(), row2.w()));
+        data.add(Vector4D.create(row3.x(), row3.y(), row3.z(), row3.w()));
+        data.add(Vector4D.create(row4.x(), row4.y(), row4.z(), row4.w()));
     }
 
     public static Matrix4D create() {
         return new Matrix4D();
     }
 
-    public static Matrix4D create(Vec4 row1, Vec4 row2, Vec4 row3, Vec4 row4) {
+    public static Matrix4D create(Vector4D row1, Vector4D row2, Vector4D row3, Vector4D row4) {
         return new Matrix4D(row1, row2, row3, row4);
     }
 
     public static Matrix4D identity() {
-        return new Matrix4D(Vec4.create(1.f, 0.f, 0.f, 0.f),
-                            Vec4.create(0.f, 1.f, 0.f, 0.f),
-                            Vec4.create(0.f, 0.f, 1.f, 0.f),
-                            Vec4.create(0.f, 0.f, 0.f, 1.f));
+        return new Matrix4D(Vector4D.create(1.f, 0.f, 0.f, 0.f),
+                            Vector4D.create(0.f, 1.f, 0.f, 0.f),
+                            Vector4D.create(0.f, 0.f, 1.f, 0.f),
+                            Vector4D.create(0.f, 0.f, 0.f, 1.f));
     }
 
     public void set(int row, int col, Float val) {
@@ -66,26 +66,26 @@ public class Matrix4D {
     }
 
     public Matrix4D times(Matrix4D m) {
-        Vec4 row1 = data.get(0);
-        Vec4 row2 = data.get(1);
-        Vec4 row3 = data.get(2);
-        Vec4 row4 = data.get(3);
+        Vector4D row1 = data.get(0);
+        Vector4D row2 = data.get(1);
+        Vector4D row3 = data.get(2);
+        Vector4D row4 = data.get(3);
 
-        Vec4 col1 = Vec4.create(m.get(0, 0), m.get(1, 0),m.get(2, 0), m.get(3,0));
-        Vec4 col2 = Vec4.create(m.get(0, 1), m.get(1, 1),m.get(2, 1), m.get(3,1));
-        Vec4 col3 = Vec4.create(m.get(0, 2), m.get(1, 2),m.get(2, 2), m.get(3,2));
-        Vec4 col4 = Vec4.create(m.get(0, 3), m.get(1, 3),m.get(2, 3), m.get(3,3));
+        Vector4D col1 = Vector4D.create(m.get(0, 0), m.get(1, 0),m.get(2, 0), m.get(3,0));
+        Vector4D col2 = Vector4D.create(m.get(0, 1), m.get(1, 1),m.get(2, 1), m.get(3,1));
+        Vector4D col3 = Vector4D.create(m.get(0, 2), m.get(1, 2),m.get(2, 2), m.get(3,2));
+        Vector4D col4 = Vector4D.create(m.get(0, 3), m.get(1, 3),m.get(2, 3), m.get(3,3));
 
-        Vec4 returnRow1 = Vec4.create(row1.dot(col1), row1.dot(col2), row1.dot(col3), row1.dot(col4));
-        Vec4 returnRow2 = Vec4.create(row2.dot(col1), row2.dot(col2), row2.dot(col3), row2.dot(col4));
-        Vec4 returnRow3 = Vec4.create(row3.dot(col1), row3.dot(col2), row3.dot(col3), row3.dot(col4));
-        Vec4 returnRow4 = Vec4.create(row4.dot(col1), row4.dot(col2), row4.dot(col3), row4.dot(col4));
+        Vector4D returnRow1 = Vector4D.create(row1.dot(col1), row1.dot(col2), row1.dot(col3), row1.dot(col4));
+        Vector4D returnRow2 = Vector4D.create(row2.dot(col1), row2.dot(col2), row2.dot(col3), row2.dot(col4));
+        Vector4D returnRow3 = Vector4D.create(row3.dot(col1), row3.dot(col2), row3.dot(col3), row3.dot(col4));
+        Vector4D returnRow4 = Vector4D.create(row4.dot(col1), row4.dot(col2), row4.dot(col3), row4.dot(col4));
 
         return Matrix4D.create(returnRow1, returnRow2, returnRow3, returnRow4);
     }
 
-    public Vec4 times(Vec4 v) {
-        Vec4 ret = Vec4.create();
+    public Vector4D times(Vector4D v) {
+        Vector4D ret = Vector4D.create();
         ret.setX(data.get(0).dot(v));
         ret.setY(data.get(1).dot(v));
         ret.setZ(data.get(2).dot(v));

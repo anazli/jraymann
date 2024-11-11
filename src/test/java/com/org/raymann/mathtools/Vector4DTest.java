@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Vec4Test {
-    private Vec4 v;
+class Vector4DTest {
+    private Vector4D v;
 
     @BeforeEach
     void setUp() {
-        v = Vec4.create();
+        v = Vector4D.create();
     }
 
     @Test
@@ -70,8 +70,8 @@ class Vec4Test {
     @Test
     public void givenTwoVectorsWhenAddedThenResultedVectorIsCorrect() {
         v.setAll(5.2f);
-        Vec4 u = Vec4.create(3.14159f, -45.9f, 200.5346f, 0.34f);
-        Vec4 w = v.plus(u);
+        Vector4D u = Vector4D.create(3.14159f, -45.9f, 200.5346f, 0.34f);
+        Vector4D w = v.plus(u);
         assertEquals(8.34159f, w.x());
         assertEquals(-40.7f, w.y());
         assertEquals(205.7346f, w.z());
@@ -81,8 +81,8 @@ class Vec4Test {
     @Test
     public void givenTwoVectorsWhenSubtractedThenResultedVectorIsCorrect() {
         v.setAll(10.f);
-        Vec4 u = Vec4.create(10.f, 10.f, 10.f, 10.f);
-        Vec4 w = v.minus(u);
+        Vector4D u = Vector4D.create(10.f, 10.f, 10.f, 10.f);
+        Vector4D w = v.minus(u);
         assertEquals(0.f, w.x());
         assertEquals(0.f, w.y());
         assertEquals(0.f, w.z());
@@ -92,8 +92,8 @@ class Vec4Test {
     @Test
     public void givenTwoVectorsWhenMultipliedThenResultedVectorIsCorrect() {
         v.setAll(9.325f);
-        Vec4 u = Vec4.create(9.2f, -15.f, 7.5f, 1.f);
-        Vec4 w = v.times(u);
+        Vector4D u = Vector4D.create(9.2f, -15.f, 7.5f, 1.f);
+        Vector4D w = v.times(u);
         assertEquals(85.78999f, w.x());
         assertEquals(-139.875f, w.y());
         assertEquals(69.9375f, w.z());
@@ -103,8 +103,8 @@ class Vec4Test {
     @Test
     public void givenVectorAndFloatWhenMultipliedThenResultedVectorIsCorrect() {
         Float f = 9.325f;
-        v = Vec4.create(9.2f, -15.f, 7.5f, 0.f);
-        Vec4 w = v.times(f);
+        v = Vector4D.create(9.2f, -15.f, 7.5f, 0.f);
+        Vector4D w = v.times(f);
         assertEquals(85.78999f, w.x());
         assertEquals(-139.875f, w.y());
         assertEquals(69.9375f, w.z());
@@ -114,8 +114,8 @@ class Vec4Test {
     @Test
     public void givenTwoVectorsWhenDividedThenResultedVectorIsCorrect() {
         v.setAll(9.325f);
-        Vec4 u = Vec4.create(9.2f, -15.f, 7.5f, 1.f);
-        Vec4 w = v.over(u);
+        Vector4D u = Vector4D.create(9.2f, -15.f, 7.5f, 1.f);
+        Vector4D w = v.over(u);
         assertEquals(1.013587f, w.x());
         assertEquals(-0.62166667f, w.y());
         assertEquals(1.2433333f, w.z());
@@ -125,8 +125,8 @@ class Vec4Test {
     @Test
     public void givenVectorAndFloatWhenDividedThenResultedVectorIsCorrect() {
         Float f = 9.325f;
-        v = Vec4.create(9.2f, -15.f, 7.5f, 0.f);
-        Vec4 w = v.over(f);
+        v = Vector4D.create(9.2f, -15.f, 7.5f, 0.f);
+        Vector4D w = v.over(f);
         assertEquals(0.98659515f, w.x());
         assertEquals(-1.6085792f, w.y());
         assertEquals(0.8042896f, w.z());
@@ -136,7 +136,7 @@ class Vec4Test {
     @Test
     public void givenTwoVectorsWhenDotIsComputedThenItIsCorrect() {
         v.setAll(3.14159f);
-        Vec4 u = Vec4.create(9.2f, -15.f, 7.5f, 0.f);
+        Vector4D u = Vector4D.create(9.2f, -15.f, 7.5f, 0.f);
         assertEquals(5.340702f, v.dot(u));
     }
 
@@ -146,7 +146,7 @@ class Vec4Test {
         v.setY(2.f);
         v.setZ(3.f);
         v.setW(0.f);
-        Vec4 u = Vec4.create(1.f, 2.f, 3.f, 0.f);
+        Vector4D u = Vector4D.create(1.f, 2.f, 3.f, 0.f);
         assertTrue(v.equals(u));
         v.setAll(5.f);
         assertFalse(v.equals(u));
@@ -155,7 +155,7 @@ class Vec4Test {
     @Test
     public void givenNonNullVectorWhenNegatedThenReturnsOpposite() {
         v.setAll(43.87f);
-        Vec4 u = v.opposite();
+        Vector4D u = v.opposite();
         assertEquals(-v.x(), u.x());
         assertEquals(-v.y(), u.y());
         assertEquals(-v.z(), u.z());

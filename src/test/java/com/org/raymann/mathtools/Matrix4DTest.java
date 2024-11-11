@@ -2,8 +2,6 @@ package com.org.raymann.mathtools;
 
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class Matrix4DTest {
@@ -13,7 +11,7 @@ class Matrix4DTest {
     @Test
     public void givenNullMatrixWhenItIsCreatedThenIsZeroInit() {
         Float f = 0.f;
-        m = Matrix4D.create(Vec4.create(), Vec4.create(), Vec4.create(), Vec4.create());
+        m = Matrix4D.create(Vector4D.create(), Vector4D.create(), Vector4D.create(), Vector4D.create());
         assertEquals(m.get(0, 0), f);
         assertEquals(m.get(0, 1), f);
         assertEquals(m.get(0, 2), f);
@@ -62,15 +60,15 @@ class Matrix4DTest {
 
     @Test
     public void givenTwoMatricesWhenAddedThenResultIsCorrect() {
-        m = Matrix4D.create(Vec4.create(1.36f, 1.28f, 1.f, 0.f),
-                            Vec4.create(1.5f, 0.f, -1.f, -2.f),
-                            Vec4.create(6.3f, 0.5f, 0.8f, -6.f),
-                            Vec4.create(0.5f, 3.38f, -2.f, 5.f));
+        m = Matrix4D.create(Vector4D.create(1.36f, 1.28f, 1.f, 0.f),
+                            Vector4D.create(1.5f, 0.f, -1.f, -2.f),
+                            Vector4D.create(6.3f, 0.5f, 0.8f, -6.f),
+                            Vector4D.create(0.5f, 3.38f, -2.f, 5.f));
 
-        Matrix4D mr = Matrix4D.create(Vec4.create(9.f, -5.8f, 0.f, 0.f),
-                                      Vec4.create(-6.5f, 5.3f, -1.5f, -2.5f),
-                                      Vec4.create(-5.f, 0.4f, 90.f, 3.5f),
-                                      Vec4.create(5.f, 0.4f, 0.5f, 3.5f));
+        Matrix4D mr = Matrix4D.create(Vector4D.create(9.f, -5.8f, 0.f, 0.f),
+                                      Vector4D.create(-6.5f, 5.3f, -1.5f, -2.5f),
+                                      Vector4D.create(-5.f, 0.4f, 90.f, 3.5f),
+                                      Vector4D.create(5.f, 0.4f, 0.5f, 3.5f));
 
         Matrix4D ms = m.plus(mr);
 
@@ -97,15 +95,15 @@ class Matrix4DTest {
 
     @Test
     public void givenTwoMatricesWhenMultipliedThenResultIsCorrect() {
-        m = Matrix4D.create(Vec4.create(1.36f, 1.28f, 0.85f, -1.f),
-                Vec4.create(1.5f, 0.f, -6.58f, 0.f),
-                Vec4.create(4.5f, 0.f, -3.f, 0.f),
-                Vec4.create(5.8f, -3.4f, 0.f, -1.f));
+        m = Matrix4D.create(Vector4D.create(1.36f, 1.28f, 0.85f, -1.f),
+                Vector4D.create(1.5f, 0.f, -6.58f, 0.f),
+                Vector4D.create(4.5f, 0.f, -3.f, 0.f),
+                Vector4D.create(5.8f, -3.4f, 0.f, -1.f));
 
-        Matrix4D mr = Matrix4D.create(Vec4.create(9.f, -5.8f, -4.5f, -1.1f),
-                                      Vec4.create(-6.5f, 5.3f, 20.f, 2.2f),
-                                      Vec4.create(8.6f, 33.f, -5.f, -4.f),
-                                      Vec4.create(0.f, -5.f, 8.f, -3.f));
+        Matrix4D mr = Matrix4D.create(Vector4D.create(9.f, -5.8f, -4.5f, -1.1f),
+                                      Vector4D.create(-6.5f, 5.3f, 20.f, 2.2f),
+                                      Vector4D.create(8.6f, 33.f, -5.f, -4.f),
+                                      Vector4D.create(0.f, -5.f, 8.f, -3.f));
 
         Matrix4D ms = m.times(mr);
 
@@ -132,10 +130,10 @@ class Matrix4DTest {
 
     @Test
     public void givenNotNullMatrixWhenTransposeIsReturnedThenItIsCorrect() {
-        m = Matrix4D.create(Vec4.create(1.36f, 1.28f, 0.85f, -1.f),
-                            Vec4.create(1.5f, 0.f, -6.58f, -5.f),
-                            Vec4.create(4.5f, 0.f, -3.f, 0.f),
-                            Vec4.create(3.f, 4.f, 5.f, 6.f));
+        m = Matrix4D.create(Vector4D.create(1.36f, 1.28f, 0.85f, -1.f),
+                            Vector4D.create(1.5f, 0.f, -6.58f, -5.f),
+                            Vector4D.create(4.5f, 0.f, -3.f, 0.f),
+                            Vector4D.create(3.f, 4.f, 5.f, 6.f));
 
         Matrix4D mt = m.transpose();
 
@@ -162,10 +160,10 @@ class Matrix4DTest {
 
     @Test
     public void givenNotNullMatrixWhenInvertedThenItIsCorrect() {
-        m = Matrix4D.create(Vec4.create(1.36f, 1.28f, 0.85f, -7.f),
-                            Vec4.create(1.5f, 0.f, -6.58f, 1.f),
-                            Vec4.create(4.5f, 0.f, -3.f, 10.f),
-                            Vec4.create(0.f, 1.f, 6.68f, -9.f));
+        m = Matrix4D.create(Vector4D.create(1.36f, 1.28f, 0.85f, -7.f),
+                            Vector4D.create(1.5f, 0.f, -6.58f, 1.f),
+                            Vector4D.create(4.5f, 0.f, -3.f, 10.f),
+                            Vector4D.create(0.f, 1.f, 6.68f, -9.f));
 
         Matrix4D mt = m.inverse();
 
@@ -194,7 +192,7 @@ class Matrix4DTest {
     public void givenTranslationMatrixWhenIsAppliedToVectorThenReturnedVectorIsCorrect() {
         Vec3 v3 = Vec3.create(-3.0f, 4.0f, 5.0f);
         Matrix4D m = Matrix4D.translation(v3);
-        Vec4 v4 = Vec4.fromVec3(v3);
+        Vector4D v4 = Vector4D.fromVec3(v3);
         v4 = m.times(v4);
         assertEquals(v3.x(), v4.x());
         assertEquals(v3.y(), v4.y());
@@ -206,7 +204,7 @@ class Matrix4DTest {
     public void givenTranslationMatrixWhenIsAppliedInverseToVectorThenReturnedVectorIsCorrect() {
         Point3 p = Point3.create(-3.f, 4.f, 5.f);
         Matrix4D m = Matrix4D.translation(5.f, -3.f, 2.f);
-        Vec4 v4 = Vec4.fromPoint3(p);
+        Vector4D v4 = Vector4D.fromPoint3(p);
         m = m.inverse();
         v4 = m.times(v4);
 
@@ -221,7 +219,7 @@ class Matrix4DTest {
     public void givenScalingMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
         Vec3 v3 = Vec3.create(-4.0f, 6.0f, 8.0f);
         Matrix4D m = Matrix4D.scale(2.f, 3.f, 4.f);
-        Vec4 v4 = Vec4.fromVec3(v3);
+        Vector4D v4 = Vector4D.fromVec3(v3);
         v4 = m.times(v4);
 
         assertEquals(-8.f, v4.x());
@@ -233,7 +231,7 @@ class Matrix4DTest {
     public void givenScalingMatrixWhenInverseIsAppliedToVectorThenReturnedVectorIsCorrect() {
         Vec3 v3 = Vec3.create(-4.0f, 6.0f, 8.0f);
         Matrix4D m = Matrix4D.scale(2.f, 3.f, 4.f);
-        Vec4 v4 = Vec4.fromVec3(v3);
+        Vector4D v4 = Vector4D.fromVec3(v3);
         m = m.inverse();
         v4 = m.times(v4);
 
@@ -246,7 +244,7 @@ class Matrix4DTest {
     public void givenXRotationMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
         Matrix4D m = Matrix4D.rotationOverX(Constants.PI/4.f);
         Point3 p = Point3.create(0.f, 1.f, 0.f);
-        Vec4 v4 = Vec4.fromPoint3(p);
+        Vector4D v4 = Vector4D.fromPoint3(p);
         v4 = m.times(v4);
         assertEquals(0.f, v4.x());
         assertEquals((float)Math.sqrt(2.f)/2.f, v4.y());
@@ -257,7 +255,7 @@ class Matrix4DTest {
     public void givenXRotationMatrixWhenItIsAppliedInverseToVectorThenReturnedVectorIsCorrect() {
         Matrix4D m = Matrix4D.rotationOverX(Constants.PI/4.f);
         Point3 p = Point3.create(0.f, 1.f, 0.f);
-        Vec4 v4 = Vec4.fromPoint3(p);
+        Vector4D v4 = Vector4D.fromPoint3(p);
         m = m.inverse();
         v4 = m.times(v4);
         assertEquals(0.f, v4.x());
@@ -269,7 +267,7 @@ class Matrix4DTest {
     public void givenYRotationMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
         Matrix4D m = Matrix4D.rotationOverY(Constants.PI/4.f);
         Point3 p = Point3.create(0.f, 0.f, 1.f);
-        Vec4 v4 = Vec4.fromPoint3(p);
+        Vector4D v4 = Vector4D.fromPoint3(p);
         v4 = m.times(v4);
         assertEquals((float)Math.sqrt(2.f)/2.f, v4.x());
         assertEquals(0.f, v4.y());
@@ -280,7 +278,7 @@ class Matrix4DTest {
     public void givenZRotationMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
         Matrix4D m = Matrix4D.rotationOverZ(Constants.PI/4.f);
         Point3 p = Point3.create(0.f, 1.f, 0.f);
-        Vec4 v4 = Vec4.fromPoint3(p);
+        Vector4D v4 = Vector4D.fromPoint3(p);
         v4 = m.times(v4);
         assertEquals(-(float)Math.sqrt(2.f)/2.f, v4.x());
         assertEquals((float)Math.sqrt(2.f)/2.f, v4.y());
@@ -290,7 +288,7 @@ class Matrix4DTest {
     @Test
     public void givenTransformationMatricesWhenChainingIsAppliedToVectorThenReturnedVectorIsCorrect() {
         Point3 p = Point3.create(1.f, 0.f, 1.f);
-        Vec4 v4 = Vec4.fromPoint3(p);
+        Vector4D v4 = Vector4D.fromPoint3(p);
         Matrix4D rotationOverX = Matrix4D.rotationOverX(Constants.PI / 2.f);
         Matrix4D scale = Matrix4D.scale(5.f, 5.f, 5.f);
         Matrix4D translation = Matrix4D.translation(10.f, 5.f, 7.f);

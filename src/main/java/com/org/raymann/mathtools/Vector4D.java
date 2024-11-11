@@ -1,36 +1,36 @@
 package com.org.raymann.mathtools;
 
-public class Vec4 {
+public class Vector4D {
     private Float x;
     private Float y;
     private Float z;
     private Float w;
 
-    public Vec4() {
+    public Vector4D() {
         this(0.f, 0.f, 0.f, 0.f);
     }
 
-    public Vec4(Float x, Float y, Float z, Float w) {
+    public Vector4D(Float x, Float y, Float z, Float w) {
         this.x = x;
         this.y = y;
         this.z = z;
         this.w = w;
     }
 
-    public static Vec4 create() {
-        return new Vec4();
+    public static Vector4D create() {
+        return new Vector4D();
     }
 
-    public static Vec4 create(Float x, Float y, Float z, Float w) {
-        return new Vec4(x, y, z, w);
+    public static Vector4D create(Float x, Float y, Float z, Float w) {
+        return new Vector4D(x, y, z, w);
     }
 
-    public static Vec4 fromVec3(Vec3 v) {
-        return new Vec4(v.x(), v.y(), v.z(), 0.f);
+    public static Vector4D fromVec3(Vec3 v) {
+        return new Vector4D(v.x(), v.y(), v.z(), 0.f);
     }
 
-    public static Vec4 fromPoint3(Point3 p) {
-        return new Vec4(p.x(), p.y(), p.z(), 1.f);
+    public static Vector4D fromPoint3(Point3 p) {
+        return new Vector4D(p.x(), p.y(), p.z(), 1.f);
     }
 
     public void setX(Float x) {
@@ -102,48 +102,48 @@ public class Vec4 {
         return (float) d;
     }
 
-    public Vec4 normalVector() {
+    public Vector4D normalVector() {
         Float l = length();
-        return new Vec4(x / l, y / l, z / l, w / l);
+        return new Vector4D(x / l, y / l, z / l, w / l);
     }
 
-    public Vec4 plus(Vec4 v) {
-        return new Vec4(x + v.x(), y + v.y(), z + v.z(), w + v.w());
+    public Vector4D plus(Vector4D v) {
+        return new Vector4D(x + v.x(), y + v.y(), z + v.z(), w + v.w());
     }
 
-    public Vec4 minus(Vec4 v) {
-        return new Vec4(x - v.x(), y - v.y(), z - v.z(), w - v.w());
+    public Vector4D minus(Vector4D v) {
+        return new Vector4D(x - v.x(), y - v.y(), z - v.z(), w - v.w());
     }
 
-    public Vec4 times(Vec4 v) {
-        return new Vec4(x * v.x(), y * v.y(), z * v.z(), w * v.w());
+    public Vector4D times(Vector4D v) {
+        return new Vector4D(x * v.x(), y * v.y(), z * v.z(), w * v.w());
     }
 
-    public Vec4 times(Float f) {
-        return new Vec4(x * f, y * f, z * f, w * f);
+    public Vector4D times(Float f) {
+        return new Vector4D(x * f, y * f, z * f, w * f);
     }
 
-    public Vec4 over(Vec4 v) {
-        return new Vec4(x / v.x(), y / v.y(), z / v.z(), w / v.w());
+    public Vector4D over(Vector4D v) {
+        return new Vector4D(x / v.x(), y / v.y(), z / v.z(), w / v.w());
     }
 
-    public Vec4 over(Float f) {
-        return new Vec4(x / f, y / f, z / f, w / f);
+    public Vector4D over(Float f) {
+        return new Vector4D(x / f, y / f, z / f, w / f);
     }
 
-    public Float dot(Vec4 v) {
+    public Float dot(Vector4D v) {
         return x * v.x() + y * v.y() + z * v.z() + w * v.w();
     }
 
-    public boolean equals(Vec4 v) {
+    public boolean equals(Vector4D v) {
         return (Math.abs(x - v.x()) < Constants.EPSILON) &&
                 (Math.abs(y - v.y()) < Constants.EPSILON) &&
                 (Math.abs(z - v.z()) < Constants.EPSILON) &&
                 (Math.abs(w - v.w()) < Constants.EPSILON);
     }
 
-    public Vec4 opposite() {
-        return new Vec4(-x, -y, -z, -w);
+    public Vector4D opposite() {
+        return new Vector4D(-x, -y, -z, -w);
     }
 
     public String getInfoStr() {
