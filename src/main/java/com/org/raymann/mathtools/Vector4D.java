@@ -29,7 +29,7 @@ public class Vector4D {
         return new Vector4D(v.x(), v.y(), v.z(), 0.f);
     }
 
-    public static Vector4D fromPoint3(Point3 p) {
+    public static Vector4D fromPoint3(Point3D p) {
         return new Vector4D(p.x(), p.y(), p.z(), 1.f);
     }
 

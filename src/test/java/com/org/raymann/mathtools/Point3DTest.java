@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Point3Test {
-    private Point3 p;
+class Point3DTest {
+    private Point3D p;
 
     @BeforeEach
     void setUp() {
-        p = Point3.create();
+        p = Point3D.create();
     }
 
     @Test
@@ -44,8 +44,8 @@ class Point3Test {
 
     @Test
     public void givenTwoEqualPointsWhenTheyAreComparedThenReturnsTrue() {
-        p = Point3.create(25.345f, 56.46f, 45.76f);
-        Point3 p1 = Point3.create(25.345f, 56.46f, 45.76f);
+        p = Point3D.create(25.345f, 56.46f, 45.76f);
+        Point3D p1 = Point3D.create(25.345f, 56.46f, 45.76f);
         assertTrue(p.equals(p1));
         p.setX(924.55f);
         assertFalse(p.equals(p1));
@@ -55,7 +55,7 @@ class Point3Test {
     public void givenPointAndVectorWhenAddedThenResultedPointIsCorrect() {
         p.setAll(5.2f);
         Vector3D u = Vector3D.create(3.14159f, -45.9f, 200.5346f);
-        Point3 w = p.plus(u);
+        Point3D w = p.plus(u);
         assertEquals(8.34159f, w.x());
         assertEquals(-40.7f, w.y());
         assertEquals(205.7346f, w.z());
@@ -64,7 +64,7 @@ class Point3Test {
     @Test
     public void givenTwoPointsWhenSubtractedThenResultedVectorIsCorrect() {
         p.setAll(5.2f);
-        Point3 u = Point3.create(3.14159f, -45.9f, 200.5346f);
+        Point3D u = Point3D.create(3.14159f, -45.9f, 200.5346f);
         Vector3D w = p.minus(u);
         assertEquals(2.0584097f, w.x());
         assertEquals(51.100002f, w.y());
@@ -75,7 +75,7 @@ class Point3Test {
     public void givenPointsAndVectorWhenSubtractedThenResultedPointIsCorrect() {
         p.setAll(5.2f);
         Vector3D u = Vector3D.create(3.14159f, -45.9f, 200.5346f);
-        Point3 w = p.minus(u);
+        Point3D w = p.minus(u);
         assertEquals(2.0584097f, w.x());
         assertEquals(51.100002f, w.y());
         assertEquals(-195.33461f, w.z());

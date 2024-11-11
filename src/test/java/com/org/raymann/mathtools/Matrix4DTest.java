@@ -202,7 +202,7 @@ class Matrix4DTest {
 
     @Test
     public void givenTranslationMatrixWhenIsAppliedInverseToVectorThenReturnedVectorIsCorrect() {
-        Point3 p = Point3.create(-3.f, 4.f, 5.f);
+        Point3D p = Point3D.create(-3.f, 4.f, 5.f);
         Matrix4D m = Matrix4D.translation(5.f, -3.f, 2.f);
         Vector4D v4 = Vector4D.fromPoint3(p);
         m = m.inverse();
@@ -243,7 +243,7 @@ class Matrix4DTest {
     @Test
     public void givenXRotationMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
         Matrix4D m = Matrix4D.rotationOverX(Constants.PI/4.f);
-        Point3 p = Point3.create(0.f, 1.f, 0.f);
+        Point3D p = Point3D.create(0.f, 1.f, 0.f);
         Vector4D v4 = Vector4D.fromPoint3(p);
         v4 = m.times(v4);
         assertEquals(0.f, v4.x());
@@ -254,7 +254,7 @@ class Matrix4DTest {
     @Test
     public void givenXRotationMatrixWhenItIsAppliedInverseToVectorThenReturnedVectorIsCorrect() {
         Matrix4D m = Matrix4D.rotationOverX(Constants.PI/4.f);
-        Point3 p = Point3.create(0.f, 1.f, 0.f);
+        Point3D p = Point3D.create(0.f, 1.f, 0.f);
         Vector4D v4 = Vector4D.fromPoint3(p);
         m = m.inverse();
         v4 = m.times(v4);
@@ -266,7 +266,7 @@ class Matrix4DTest {
     @Test
     public void givenYRotationMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
         Matrix4D m = Matrix4D.rotationOverY(Constants.PI/4.f);
-        Point3 p = Point3.create(0.f, 0.f, 1.f);
+        Point3D p = Point3D.create(0.f, 0.f, 1.f);
         Vector4D v4 = Vector4D.fromPoint3(p);
         v4 = m.times(v4);
         assertEquals((float)Math.sqrt(2.f)/2.f, v4.x());
@@ -277,7 +277,7 @@ class Matrix4DTest {
     @Test
     public void givenZRotationMatrixWhenItIsAppliedToVectorThenReturnedVectorIsCorrect() {
         Matrix4D m = Matrix4D.rotationOverZ(Constants.PI/4.f);
-        Point3 p = Point3.create(0.f, 1.f, 0.f);
+        Point3D p = Point3D.create(0.f, 1.f, 0.f);
         Vector4D v4 = Vector4D.fromPoint3(p);
         v4 = m.times(v4);
         assertEquals(-(float)Math.sqrt(2.f)/2.f, v4.x());
@@ -287,7 +287,7 @@ class Matrix4DTest {
 
     @Test
     public void givenTransformationMatricesWhenChainingIsAppliedToVectorThenReturnedVectorIsCorrect() {
-        Point3 p = Point3.create(1.f, 0.f, 1.f);
+        Point3D p = Point3D.create(1.f, 0.f, 1.f);
         Vector4D v4 = Vector4D.fromPoint3(p);
         Matrix4D rotationOverX = Matrix4D.rotationOverX(Constants.PI / 2.f);
         Matrix4D scale = Matrix4D.scale(5.f, 5.f, 5.f);
