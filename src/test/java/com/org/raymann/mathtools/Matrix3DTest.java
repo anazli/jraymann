@@ -2,7 +2,8 @@ package com.org.raymann.mathtools;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class Matrix3DTest {
     private Matrix3D m;
