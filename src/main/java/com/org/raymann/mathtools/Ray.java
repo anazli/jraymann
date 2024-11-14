@@ -9,8 +9,8 @@ public class Ray {
     }
 
     public Ray(Point3D o, Vector3D d) {
-        origin = Point3D.create(o);
-        direction = Vector3D.create(d);
+        origin = o;
+        direction = d;
     }
 
     public static Ray create() {

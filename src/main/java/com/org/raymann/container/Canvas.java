@@ -91,7 +91,6 @@ public class Canvas {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            ;
         }
     }
 }
