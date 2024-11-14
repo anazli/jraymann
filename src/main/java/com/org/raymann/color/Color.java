@@ -18,7 +18,7 @@ public class Color {
     }
 
     public static Color create(Float r, Float g, Float b) {
-        return new Color(Vector3D.create(r,g,b));
+        return new Color(Vector3D.create(r, g, b));
     }
 
     public boolean equals(Color other) {

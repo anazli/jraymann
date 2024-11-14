@@ -62,24 +62,29 @@ public class Vector3D {
     }
 
     public void set(int index, float value) {
-        if(index > 2 || index < 0) {
+        if (index > 2 || index < 0) {
             throw new IndexOutOfBoundsException();
         }
         switch (index) {
-            case 0: x = value;break;
-            case 1: y = value;break;
-            case 2: z = value;break;
+            case 0:
+                x = value;
+                break;
+            case 1:
+                y = value;
+                break;
+            case 2:
+                z = value;
+                break;
         }
     }
 
     public float get(int index) {
-        if(index < 0 || index > 2) {
+        if (index < 0 || index > 2) {
             throw new IndexOutOfBoundsException();
         }
-        if(index == 0) {
+        if (index == 0) {
             return x;
-        }
-        else if(index == 1) {
+        } else if (index == 1) {
             return y;
         }
         return z;

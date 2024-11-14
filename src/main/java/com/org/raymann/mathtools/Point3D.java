@@ -20,7 +20,7 @@ public class Point3D {
     }
 
     public static Point3D create(float x, float y, float z) {
-        return new Point3D(x,y,z);
+        return new Point3D(x, y, z);
     }
 
     public static Point3D create(Point3D p) {

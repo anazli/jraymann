@@ -34,20 +34,24 @@ public class Vector2D {
     }
 
     public void set(int index, float value) {
-        if(index > 1 || index < 0) {
+        if (index > 1 || index < 0) {
             throw new IndexOutOfBoundsException();
         }
         switch (index) {
-            case 0: x = value;break;
-            case 1: y = value;break;
+            case 0:
+                x = value;
+                break;
+            case 1:
+                y = value;
+                break;
         }
     }
 
     public float get(int index) {
-        if(index < 0 || index > 1) {
+        if (index < 0 || index > 1) {
             throw new IndexOutOfBoundsException();
         }
-        if(index == 0) {
+        if (index == 0) {
             return x;
         }
         return y;

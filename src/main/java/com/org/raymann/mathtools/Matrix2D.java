@@ -27,14 +27,14 @@ public class Matrix2D {
     }
 
     public void set(int row, int col, float val) {
-        if(row >= LENGTH || row < 0) {
+        if (row >= LENGTH || row < 0) {
             throw new IndexOutOfBoundsException();
         }
         data.get(row).set(col, val);
     }
 
     public float get(int row, int col) {
-        if(row >= LENGTH || row < 0) {
+        if (row >= LENGTH || row < 0) {
             throw new IndexOutOfBoundsException();
         }
         return data.get(row).get(col);
@@ -42,18 +42,18 @@ public class Matrix2D {
 
     public Matrix2D plus(Matrix2D m) {
         return new Matrix2D(this.data.get(0).plus(m.data.get(0)),
-                            this.data.get(1).plus(m.data.get(1)));
+                this.data.get(1).plus(m.data.get(1)));
     }
 
     public Matrix2D minus(Matrix2D m) {
         return new Matrix2D(this.data.get(0).minus(m.data.get(0)),
-                            this.data.get(1).minus(m.data.get(1)));
+                this.data.get(1).minus(m.data.get(1)));
     }
 
     public Matrix2D times(Matrix2D m) {
         Matrix2D ret = new Matrix2D();
         ret.set(0, 0, this.get(0, 0) * m.get(0, 0) +
-                                   this.get(0, 1) * m.get(1, 0));
+                this.get(0, 1) * m.get(1, 0));
         ret.set(0, 1, this.get(0, 0) * m.get(0, 1) +
                 this.get(0, 1) * m.get(1, 1));
         ret.set(1, 0, this.get(1, 0) * m.get(0, 0) +

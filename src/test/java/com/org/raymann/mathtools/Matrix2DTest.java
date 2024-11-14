@@ -23,13 +23,19 @@ class Matrix2DTest {
         float f = 5.f;
         m = Matrix2D.create();
         IndexOutOfBoundsException exc1 = assertThrows(IndexOutOfBoundsException.class,
-                () -> {m.set(-1, 0, f);});
+                () -> {
+                    m.set(-1, 0, f);
+                });
         assertEquals(IndexOutOfBoundsException.class, exc1.getClass());
         IndexOutOfBoundsException exc2 = assertThrows(IndexOutOfBoundsException.class,
-                () -> {m.set(2, 0, f);});
+                () -> {
+                    m.set(2, 0, f);
+                });
         assertEquals(IndexOutOfBoundsException.class, exc2.getClass());
         IndexOutOfBoundsException exc3 = assertThrows(IndexOutOfBoundsException.class,
-                () -> {m.set(0, 2, f);});
+                () -> {
+                    m.set(0, 2, f);
+                });
         assertEquals(IndexOutOfBoundsException.class, exc3.getClass());
     }
 
@@ -50,10 +56,10 @@ class Matrix2DTest {
         m = Matrix2D.create();
         Matrix2D mr = Matrix2D.create(Vector2D.create(f1, f2), Vector2D.create(f2, f1));
         Matrix2D ms = m.plus(mr);
-        assertEquals(f1, ms.get( 0,0));
-        assertEquals(f2, ms.get( 0,1));
-        assertEquals(f2, ms.get( 1,0));
-        assertEquals(f1, ms.get( 1,1));
+        assertEquals(f1, ms.get(0, 0));
+        assertEquals(f2, ms.get(0, 1));
+        assertEquals(f2, ms.get(1, 0));
+        assertEquals(f1, ms.get(1, 1));
     }
 
     @Test
@@ -63,10 +69,10 @@ class Matrix2DTest {
         m = Matrix2D.create();
         Matrix2D mr = Matrix2D.create(Vector2D.create(f1, f2), Vector2D.create(f2, f1));
         Matrix2D ms = m.minus(mr);
-        assertEquals(-f1, ms.get(0,0));
-        assertEquals(-f2, ms.get(0,1));
-        assertEquals(-f2, ms.get(1,0));
-        assertEquals(-f1, ms.get(1,1));
+        assertEquals(-f1, ms.get(0, 0));
+        assertEquals(-f2, ms.get(0, 1));
+        assertEquals(-f2, ms.get(1, 0));
+        assertEquals(-f1, ms.get(1, 1));
     }
 
     @Test
@@ -85,9 +91,9 @@ class Matrix2DTest {
         float f2 = -1.104f;
         float f3 = 13.5f;
         float f4 = -8.7f;
-        assertEquals(f1, mp.get(0,0), Constants.EPSILON);
-        assertEquals(f2, mp.get(0,1), Constants.EPSILON);
-        assertEquals(f3, mp.get(1,0), Constants.EPSILON);
-        assertEquals(f4,mp.get(1,1), Constants.EPSILON);
+        assertEquals(f1, mp.get(0, 0), Constants.EPSILON);
+        assertEquals(f2, mp.get(0, 1), Constants.EPSILON);
+        assertEquals(f3, mp.get(1, 0), Constants.EPSILON);
+        assertEquals(f4, mp.get(1, 1), Constants.EPSILON);
     }
 }

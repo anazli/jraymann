@@ -5,7 +5,7 @@ import com.org.raymann.mathtools.Ray;
 import com.org.raymann.mathtools.Vector2D;
 import com.org.raymann.mathtools.Vector3D;
 
-public class Sphere implements SceneElement{
+public class Sphere implements SceneElement {
     private final Point3D center;
     private final float radius;
 
@@ -31,10 +31,10 @@ public class Sphere implements SceneElement{
         float a = r.direction().dot(r.direction());
         float b = 2.f * r.direction().dot(centerToOrigin);
         float c = centerToOrigin.dot(centerToOrigin) - radius * radius;
-        float discriminant = b*b - 4.f*a*c;
-        if(discriminant >= 0.f) {
-            record.setFirstIntersection((float)(-b - Math.sqrt(discriminant))/(2.f*a));
-            record.setSecondIntersection((float)(-b + Math.sqrt(discriminant))/(2.f*a));
+        float discriminant = b * b - 4.f * a * c;
+        if (discriminant >= 0.f) {
+            record.setFirstIntersection((float) (-b - Math.sqrt(discriminant)) / (2.f * a));
+            record.setSecondIntersection((float) (-b + Math.sqrt(discriminant)) / (2.f * a));
             record.setTotalIntersections(2);
             return true;
         }

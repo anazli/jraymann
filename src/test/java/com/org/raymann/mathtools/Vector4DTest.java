@@ -52,11 +52,11 @@ class Vector4DTest {
 
     @Test
     public void givenNonNullVectorWhenLengthIsReturnedThenItIsCorrect() {
-        assertEquals((float)Math.sqrt(0.f), v.length());
+        assertEquals((float) Math.sqrt(0.f), v.length());
         v.setAll(-1.f);
-        assertEquals((float)Math.sqrt(4.f), v.length());
+        assertEquals((float) Math.sqrt(4.f), v.length());
         v.setAll(3.f);
-        assertEquals((float)Math.sqrt(36.f), v.length());
+        assertEquals((float) Math.sqrt(36.f), v.length());
     }
 
     @Test

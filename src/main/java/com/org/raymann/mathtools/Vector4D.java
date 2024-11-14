@@ -70,28 +70,34 @@ public class Vector4D {
     }
 
     public void set(int index, float value) {
-        if(index > 3 || index < 0) {
+        if (index > 3 || index < 0) {
             throw new IndexOutOfBoundsException();
         }
         switch (index) {
-            case 0: x = value;break;
-            case 1: y = value;break;
-            case 2: z = value;break;
-            case 3: w = value;break;
+            case 0:
+                x = value;
+                break;
+            case 1:
+                y = value;
+                break;
+            case 2:
+                z = value;
+                break;
+            case 3:
+                w = value;
+                break;
         }
     }
 
     public float get(int index) {
-        if(index < 0 || index > 3) {
+        if (index < 0 || index > 3) {
             throw new IndexOutOfBoundsException();
         }
-        if(index == 0) {
+        if (index == 0) {
             return x;
-        }
-        else if(index == 1) {
+        } else if (index == 1) {
             return y;
-        }
-        else if(index == 2) {
+        } else if (index == 2) {
             return z;
         }
         return w;

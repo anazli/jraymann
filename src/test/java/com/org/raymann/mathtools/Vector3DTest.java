@@ -47,11 +47,11 @@ class Vector3DTest {
 
     @Test
     public void givenNonNullVectorWhenLengthIsReturnedThenItIsCorrect() {
-        assertEquals((float)Math.sqrt(0.f), v.length());
+        assertEquals((float) Math.sqrt(0.f), v.length());
         v.setAll(-1.f);
-        assertEquals((float)Math.sqrt(3.f), v.length());
+        assertEquals((float) Math.sqrt(3.f), v.length());
         v.setAll(3.f);
-        assertEquals((float)Math.sqrt(27.f), v.length());
+        assertEquals((float) Math.sqrt(27.f), v.length());
     }
 
     @Test
@@ -132,8 +132,8 @@ class Vector3DTest {
 
     @Test
     public void givenTwoVectorsWhenCrossIsComputedThenItIsCorrect() {
-        v = Vector3D.create(3.14159f,-0.4365f,73.456f);
-        Vector3D u = Vector3D.create(-55.5f,-84.25f,0.456f);
+        v = Vector3D.create(3.14159f, -0.4365f, 73.456f);
+        Vector3D u = Vector3D.create(-55.5f, -84.25f, 0.456f);
         Vector3D w = v.cross(u);
         assertEquals(6188.468956f, w.x());
         assertEquals(-4078.24076504f, w.y());

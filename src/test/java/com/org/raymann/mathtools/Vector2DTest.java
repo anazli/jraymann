@@ -32,10 +32,14 @@ class Vector2DTest {
     public void givenNotNullVectorWhenIndexIsProvidedThenValueIsSetCorrectly() {
         v = Vector2D.create();
         IndexOutOfBoundsException exc1 = assertThrows(IndexOutOfBoundsException.class,
-                () -> {v.set(-1, 5.f);});
+                () -> {
+                    v.set(-1, 5.f);
+                });
         assertEquals(IndexOutOfBoundsException.class, exc1.getClass());
         IndexOutOfBoundsException exc2 = assertThrows(IndexOutOfBoundsException.class,
-                () -> {v.set(2, 5.f);});
+                () -> {
+                    v.set(2, 5.f);
+                });
         assertEquals(IndexOutOfBoundsException.class, exc2.getClass());
         v.set(0, 5.f);
         assertEquals(5.f, v.x());
@@ -45,10 +49,14 @@ class Vector2DTest {
     public void givenNotNullVectorWhenIndexIsProvidedThenValueIsReturnedCorrectly() {
         v = Vector2D.create();
         IndexOutOfBoundsException exc1 = assertThrows(IndexOutOfBoundsException.class,
-                () -> {v.set(-1, 5.f);});
+                () -> {
+                    v.set(-1, 5.f);
+                });
         assertEquals(IndexOutOfBoundsException.class, exc1.getClass());
         IndexOutOfBoundsException exc2 = assertThrows(IndexOutOfBoundsException.class,
-                () -> {v.set(2, 5.f);});
+                () -> {
+                    v.set(2, 5.f);
+                });
         assertEquals(IndexOutOfBoundsException.class, exc2.getClass());
         v.setX(5.f);
         assertEquals(5.f, v.get(0));
@@ -61,9 +69,9 @@ class Vector2DTest {
         v.setAll(1.f);
         assertEquals((float) Math.sqrt(2.f), v.length());
         v.setAll(3.f);
-        assertEquals((float)Math.sqrt(18.f), v.length());
+        assertEquals((float) Math.sqrt(18.f), v.length());
         v.setAll(5.f);
-        assertEquals((float)Math.sqrt(50.f), v.length());
+        assertEquals((float) Math.sqrt(50.f), v.length());
     }
 
     @Test

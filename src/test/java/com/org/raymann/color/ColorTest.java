@@ -17,6 +17,7 @@ class ColorTest {
         assertEquals(0.7f, c3.green(), eps);
         assertEquals(1.f, c3.blue(), eps);
     }
+
     @Test
     public void givenTwoColorsWhenSubtractedThenCorrectColorIsReturned() {
         Color c1 = Color.create(0.9f, 0.6f, 0.75f);
