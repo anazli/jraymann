@@ -14,8 +14,8 @@ public class Matrix2D {
 
     public Matrix2D(Vector2D row1, Vector2D row2) {
         data = new ArrayList<>();
-        data.add(Vector2D.create(row1.x(), row1.y()));
-        data.add(Vector2D.create(row2.x(), row2.y()));
+        data.add(row1);
+        data.add(row2);
     }
 
     public static Matrix2D create() {

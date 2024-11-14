@@ -13,18 +13,18 @@ class Matrix4DTest {
     public void givenNullMatrixWhenItIsCreatedThenIsZeroInit() {
         float f = 0.f;
         m = Matrix4D.create(Vector4D.create(), Vector4D.create(), Vector4D.create(), Vector4D.create());
-        assertEquals(m.get(0, 0), f);
-        assertEquals(m.get(0, 1), f);
-        assertEquals(m.get(0, 2), f);
-        assertEquals(m.get(1, 0), f);
-        assertEquals(m.get(1, 1), f);
-        assertEquals(m.get(1, 2), f);
-        assertEquals(m.get(2, 0), f);
-        assertEquals(m.get(2, 1), f);
-        assertEquals(m.get(2, 2), f);
-        assertEquals(m.get(3, 0), f);
-        assertEquals(m.get(3, 1), f);
-        assertEquals(m.get(3, 2), f);
+        assertEquals(f, m.get(0, 0));
+        assertEquals(f, m.get(0, 1));
+        assertEquals(f, m.get(0, 2));
+        assertEquals(f, m.get(1, 0));
+        assertEquals(f, m.get(1, 1));
+        assertEquals(f, m.get(1, 2));
+        assertEquals(f, m.get(2, 0));
+        assertEquals(f, m.get(2, 1));
+        assertEquals(f, m.get(2, 2));
+        assertEquals(f, m.get(3, 0));
+        assertEquals(f, m.get(3, 1));
+        assertEquals(f, m.get(3, 2));
     }
 
     @Test
@@ -51,11 +51,11 @@ class Matrix4DTest {
         m.set(2, 2, f);
         m.set(3, 3, f);
         m.set(3, 0, f);
-        assertEquals(f, m.get(0, 2), f);
-        assertEquals(f, m.get(2, 0), f);
-        assertEquals(f, m.get(2, 2), f);
-        assertEquals(f, m.get(3, 3), f);
-        assertEquals(f, m.get(3, 0), f);
+        assertEquals(f, m.get(0, 2));
+        assertEquals(f, m.get(2, 0));
+        assertEquals(f, m.get(2, 2));
+        assertEquals(f, m.get(3, 3));
+        assertEquals(f, m.get(3, 0));
         assertEquals(0.f, m.get(0, 0));
     }
 

@@ -15,9 +15,9 @@ public class Matrix3D {
 
     public Matrix3D(Vector3D row1, Vector3D row2, Vector3D row3) {
         data = new ArrayList<>();
-        data.add(Vector3D.create(row1.x(), row1.y(), row1.z()));
-        data.add(Vector3D.create(row2.x(), row2.y(), row2.z()));
-        data.add(Vector3D.create(row3.x(), row3.y(), row3.z()));
+        data.add(row1);
+        data.add(row2);
+        data.add(row3);
     }
 
     public static Matrix3D create() {

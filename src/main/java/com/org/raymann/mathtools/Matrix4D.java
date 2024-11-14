@@ -16,10 +16,10 @@ public class Matrix4D {
 
     public Matrix4D(Vector4D row1, Vector4D row2, Vector4D row3, Vector4D row4) {
         data = new ArrayList<>();
-        data.add(Vector4D.create(row1.x(), row1.y(), row1.z(), row1.w()));
-        data.add(Vector4D.create(row2.x(), row2.y(), row2.z(), row2.w()));
-        data.add(Vector4D.create(row3.x(), row3.y(), row3.z(), row3.w()));
-        data.add(Vector4D.create(row4.x(), row4.y(), row4.z(), row4.w()));
+        data.add(row1);
+        data.add(row2);
+        data.add(row3);
+        data.add(row4);
     }
 
     public static Matrix4D create() {

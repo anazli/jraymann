@@ -13,15 +13,15 @@ class Matrix3DTest {
     public void givenNullMatrixWhenItIsCreatedThenIsZeroInit() {
         float f = 0.f;
         m = Matrix3D.create(Vector3D.create(), Vector3D.create(), Vector3D.create());
-        assertEquals(m.get(0, 0), f);
-        assertEquals(m.get(0, 1), f);
-        assertEquals(m.get(0, 2), f);
-        assertEquals(m.get(1, 0), f);
-        assertEquals(m.get(1, 1), f);
-        assertEquals(m.get(1, 2), f);
-        assertEquals(m.get(2, 0), f);
-        assertEquals(m.get(2, 1), f);
-        assertEquals(m.get(2, 2), f);
+        assertEquals(f, m.get(0, 0));
+        assertEquals(f, m.get(0, 1));
+        assertEquals(f, m.get(0, 2));
+        assertEquals(f, m.get(1, 0));
+        assertEquals(f, m.get(1, 1));
+        assertEquals(f, m.get(1, 2));
+        assertEquals(f, m.get(2, 0));
+        assertEquals(f, m.get(2, 1));
+        assertEquals(f, m.get(2, 2));
     }
 
     @Test
@@ -46,9 +46,9 @@ class Matrix3DTest {
         m.set(0, 2, f);
         m.set(2, 0, f);
         m.set(2, 2, f);
-        assertEquals(f, m.get(0, 2), f);
-        assertEquals(f, m.get(2, 0), f);
-        assertEquals(f, m.get(2, 2), f);
+        assertEquals(f, m.get(0, 2));
+        assertEquals(f, m.get(2, 0));
+        assertEquals(f, m.get(2, 2));
         assertEquals(0.f, m.get(0, 0));
     }
 

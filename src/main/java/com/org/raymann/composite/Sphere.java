@@ -14,7 +14,7 @@ public class Sphere implements SceneElement{
     }
 
     public Sphere(Point3D c, float r) {
-        center = Point3D.create(c);
+        center = c;
         radius = r;
     }
 
