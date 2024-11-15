@@ -1,5 +1,6 @@
 package com.org.raymann.composite;
 
+import com.org.raymann.mathtools.Constants;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
 import com.org.raymann.mathtools.Vector3D;
@@ -59,6 +60,38 @@ class SphereTest {
         assertEquals(2, record.getTotalIntersections());
         assertEquals(-6.f, record.getFirstIntersection());
         assertEquals(-4.f, record.getSecondIntersection());
+    }
+
+    @Test
+    public void givenPointOnXAxisWhenNormalIsComputedThenResultIsCorrect() {
+        Vector3D v = sphere.normal(Point3D.create(1.f, 0.f, 0.f));
+        assertTrue(Vector3D.create(1.f, 0.f, 0.f).equals(v));
+    }
+
+    @Test
+    public void givenPointOnYAxisWhenNormalIsComputedThenResultIsCorrect() {
+        Vector3D v = sphere.normal(Point3D.create(0.f, 1.f, 0.f));
+        assertTrue(Vector3D.create(0.f, 1.f, 0.f).equals(v));
+    }
+
+    @Test
+    public void givenPointOnZAxisWhenNormalIsComputedThenResultIsCorrect() {
+        Vector3D v = sphere.normal(Point3D.create(0.f, 0.f, 1.f));
+        assertTrue(Vector3D.create(0.f, 0.f, 1.f).equals(v));
+    }
+
+    @Test
+    public void givenNonAxialPointWhenNormalIsComputedThenResultIsCorrect() {
+        float f = (float)Math.sqrt(3.f)/3.f;
+        Vector3D v = sphere.normal(Point3D.create(f, f, f));
+        assertTrue(Vector3D.create(f, f, f).equals(v));
+    }
+
+    @Test
+    public void givenAnyPointWhenNormalIsComputedThenItsLengthEqualsOne() {
+        float f = (float)Math.sqrt(3.f)/3.f;
+        Vector3D v = sphere.normal(Point3D.create(f, f, f));
+        assertEquals(1.f, v.length(), Constants.EPSILON);
     }
 
 }

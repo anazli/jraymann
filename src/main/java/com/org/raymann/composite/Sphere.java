@@ -40,4 +40,8 @@ public class Sphere implements SceneElement {
         }
         return false;
     }
+
+    public Vector3D normal(Point3D p) {
+        return (p.minus(center)).normalVector();
+    }
 }
