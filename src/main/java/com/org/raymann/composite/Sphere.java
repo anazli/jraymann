@@ -30,7 +30,7 @@ public class Sphere implements SceneElement {
         return new Sphere(c, r);
     }
 
-    public BoundingBox getBoundingbox() {
+    public BoundingBox getBoundingBox() {
         return boundingBox;
     }
 
