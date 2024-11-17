@@ -38,13 +38,11 @@ public class IntersectionRecord {
     }
 
     public float getMinPositiveIntersection() {
-        if(firstIntersection > 0.f && secondIntersection <= 0.f) {
+        if (firstIntersection > 0.f && secondIntersection <= 0.f) {
             return firstIntersection;
-        }
-        else if(firstIntersection <= 0.f && secondIntersection > 0.f) {
+        } else if (firstIntersection <= 0.f && secondIntersection > 0.f) {
             return secondIntersection;
-        }
-        else if(firstIntersection > 0.f && secondIntersection > 0.f) {
+        } else if (firstIntersection > 0.f && secondIntersection > 0.f) {
             return Math.min(firstIntersection, secondIntersection);
         }
         return -1.f;

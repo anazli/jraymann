@@ -6,7 +6,7 @@ import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
 import com.org.raymann.mathtools.Vector3D;
 
-public class Plane implements SceneElement{
+public class Plane implements SceneElement {
     private BoundingBox boundingBox;
 
     public Plane() {
@@ -22,10 +22,10 @@ public class Plane implements SceneElement{
     }
 
     public boolean intersect(Ray r, IntersectionRecord record) {
-        if(Math.abs(r.direction().y()) < Constants.EPSILON) {
+        if (Math.abs(r.direction().y()) < Constants.EPSILON) {
             return false;
         }
-        record.setFirstIntersection(-r.origin().y()/r.direction().y());
+        record.setFirstIntersection(-r.origin().y() / r.direction().y());
         record.setTotalIntersections(1);
         return true;
     }

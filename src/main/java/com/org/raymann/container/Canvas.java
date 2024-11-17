@@ -72,12 +72,18 @@ public class Canvas {
             for (int j = 0; j < height; ++j) {
                 for (int i = 0; i < width; ++i) {
                     writePixel(i, j, pixels.get(i).get(j).times(255.f));
-                    if (pixels.get(i).get(j).red() > 255.f) getPixel(i, j).setRed(255.f);
-                    if (pixels.get(i).get(j).red() < 0.f) getPixel(i, j).setRed(0.f);
-                    if (pixels.get(i).get(j).green() > 255.f) getPixel(i, j).setGreen(255.f);
-                    if (pixels.get(i).get(j).green() < 0.f) getPixel(i, j).setGreen(0.f);
-                    if (pixels.get(i).get(j).blue() > 255.f) getPixel(i, j).setBlue(255.f);
-                    if (pixels.get(i).get(j).blue() < 0.f) getPixel(i, j).setBlue(0.f);
+                    if (pixels.get(i).get(j).red() > 255.f)
+                        getPixel(i, j).setRed(255.f);
+                    if (pixels.get(i).get(j).red() < 0.f)
+                        getPixel(i, j).setRed(0.f);
+                    if (pixels.get(i).get(j).green() > 255.f)
+                        getPixel(i, j).setGreen(255.f);
+                    if (pixels.get(i).get(j).green() < 0.f)
+                        getPixel(i, j).setGreen(0.f);
+                    if (pixels.get(i).get(j).blue() > 255.f)
+                        getPixel(i, j).setBlue(255.f);
+                    if (pixels.get(i).get(j).blue() < 0.f)
+                        getPixel(i, j).setBlue(0.f);
 
                     int r = getPixel(i, j).red().intValue();
                     int g = getPixel(i, j).green().intValue();

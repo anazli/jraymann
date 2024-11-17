@@ -19,7 +19,7 @@ public class Sphere implements SceneElement {
         center = c;
         radius = r;
         boundingBox = BoundingBox.create(Point3D.create(-1.f, -1.f, -1.f),
-            Point3D.create(1.f, 1.f, 1.f));
+                Point3D.create(1.f, 1.f, 1.f));
     }
 
     public static Sphere create() {
