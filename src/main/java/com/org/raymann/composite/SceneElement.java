@@ -6,8 +6,6 @@ import com.org.raymann.mathtools.Ray;
 import com.org.raymann.mathtools.Vector3D;
 
 public interface SceneElement {
-    BoundingBox getBoundingBox();
-
     boolean intersect(Ray r, IntersectionRecord record);
 
     Vector3D normal(Point3D p);

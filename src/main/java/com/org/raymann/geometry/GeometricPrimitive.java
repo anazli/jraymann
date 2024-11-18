@@ -2,11 +2,12 @@ package com.org.raymann.geometry;
 
 import com.org.raymann.acceleration.BoundingBox;
 import com.org.raymann.composite.IntersectionRecord;
+import com.org.raymann.composite.SceneElement;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
 import com.org.raymann.mathtools.Vector3D;
 
-public abstract class GeometricPrimitive {
+public abstract class GeometricPrimitive implements SceneElement {
     private final BoundingBox boundingBox;
 
     public GeometricPrimitive(BoundingBox box) {

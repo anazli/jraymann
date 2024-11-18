@@ -16,10 +16,9 @@ public class Raymann {
         System.out.println("Raymann!");
         Ray ray = Ray.create();
         IntersectionRecord record = IntersectionRecord.create();
-        GeometricPrimitive primitive =
+        SceneElement element =
                 GeometricPrimitive.create(PrimitiveType.SPHERE, Point3D.create(1.f,
                         1.f, 1.f), 1.f);
-        SceneElement element = (Sphere) primitive;
         System.out.println(element.intersect(ray, record));
     }
 }
