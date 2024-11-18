@@ -1,24 +1,23 @@
-package com.org.raymann.composite;
+package com.org.raymann.geometry;
 
 import com.org.raymann.acceleration.BoundingBox;
+import com.org.raymann.composite.IntersectionRecord;
+import com.org.raymann.composite.SceneElement;
 import com.org.raymann.mathtools.Constants;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
 import com.org.raymann.mathtools.Vector3D;
 
-public class Plane implements SceneElement {
-    private BoundingBox boundingBox;
+public class Plane extends GeometricPrimitive implements SceneElement {
 
     public Plane() {
-        boundingBox = BoundingBox.create(Point3D.create(Float.NEGATIVE_INFINITY, 0.f, Float.NEGATIVE_INFINITY), Point3D.create(Float.POSITIVE_INFINITY, 0.f, Float.POSITIVE_INFINITY));
+        super(BoundingBox.create(Point3D.create(Float.NEGATIVE_INFINITY, 0.f,
+                        Float.NEGATIVE_INFINITY),
+                Point3D.create(Float.POSITIVE_INFINITY, 0.f, Float.POSITIVE_INFINITY)));
     }
 
     public static Plane create() {
         return new Plane();
-    }
-
-    public BoundingBox getBoundingBox() {
-        return boundingBox;
     }
 
     public boolean intersect(Ray r, IntersectionRecord record) {

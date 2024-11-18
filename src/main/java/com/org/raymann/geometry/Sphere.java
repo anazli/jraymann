@@ -1,25 +1,25 @@
-package com.org.raymann.composite;
+package com.org.raymann.geometry;
 
 import com.org.raymann.acceleration.BoundingBox;
+import com.org.raymann.composite.IntersectionRecord;
+import com.org.raymann.composite.SceneElement;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
-import com.org.raymann.mathtools.Vector2D;
 import com.org.raymann.mathtools.Vector3D;
 
-public class Sphere implements SceneElement {
+public class Sphere extends GeometricPrimitive implements SceneElement {
     private final Point3D center;
     private final float radius;
-    private final BoundingBox boundingBox;
 
     public Sphere() {
         this(Point3D.create(), 1.f);
     }
 
     public Sphere(Point3D c, float r) {
+        super(BoundingBox.create(Point3D.create(-1.f, -1.f, -1.f),
+                Point3D.create(1.f, 1.f, 1.f)));
         center = c;
         radius = r;
-        boundingBox = BoundingBox.create(Point3D.create(-1.f, -1.f, -1.f),
-                Point3D.create(1.f, 1.f, 1.f));
     }
 
     public static Sphere create() {
@@ -28,10 +28,6 @@ public class Sphere implements SceneElement {
 
     public static Sphere create(Point3D c, float r) {
         return new Sphere(c, r);
-    }
-
-    public BoundingBox getBoundingBox() {
-        return boundingBox;
     }
 
     public boolean intersect(Ray r, IntersectionRecord record) {

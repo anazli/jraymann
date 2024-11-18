@@ -10,8 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class Canvas {
-    private Integer width;
-    private Integer height;
+    private final Integer width;
+    private final Integer height;
     private String outputFileName;
     private ArrayList<ArrayList<Color>> pixels;
 
@@ -89,9 +89,9 @@ public class Canvas {
                     int g = getPixel(i, j).green().intValue();
                     int b = getPixel(i, j).blue().intValue();
 
-                    writer.write(Integer.toString(r) + " " +
-                            Integer.toString(g) + " " +
-                            Integer.toString(b) + " ");
+                    writer.write(r + " " +
+                            g + " " +
+                            b + " ");
                 }
                 writer.write("\n");
             }

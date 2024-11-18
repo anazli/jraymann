@@ -1,5 +1,6 @@
-package com.org.raymann.composite;
+package com.org.raymann.geometry;
 
+import com.org.raymann.composite.IntersectionRecord;
 import com.org.raymann.mathtools.Constants;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;

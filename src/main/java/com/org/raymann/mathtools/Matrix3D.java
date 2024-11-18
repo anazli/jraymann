@@ -3,7 +3,7 @@ package com.org.raymann.mathtools;
 import java.util.ArrayList;
 
 public class Matrix3D {
-    private ArrayList<Vector3D> data;
+    private final ArrayList<Vector3D> data;
     private static final int LENGTH = 3;
 
     public Matrix3D() {

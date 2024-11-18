@@ -3,7 +3,7 @@ package com.org.raymann.mathtools;
 import java.util.ArrayList;
 
 public class Matrix2D {
-    private ArrayList<Vector2D> data;
+    private final ArrayList<Vector2D> data;
     private static final int LENGTH = 2;
 
     public Matrix2D() {

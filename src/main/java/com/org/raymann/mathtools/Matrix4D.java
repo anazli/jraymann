@@ -3,7 +3,7 @@ package com.org.raymann.mathtools;
 import java.util.ArrayList;
 
 public class Matrix4D {
-    private ArrayList<Vector4D> data;
+    private final ArrayList<Vector4D> data;
     private static final int LENGTH = 4;
 
     public Matrix4D() {

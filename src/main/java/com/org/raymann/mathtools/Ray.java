@@ -1,8 +1,8 @@
 package com.org.raymann.mathtools;
 
 public class Ray {
-    private Point3D origin;
-    private Vector3D direction;
+    private final Point3D origin;
+    private final Vector3D direction;
 
     public Ray() {
         this(Point3D.create(), Vector3D.create());
