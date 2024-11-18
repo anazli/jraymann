@@ -1,6 +1,6 @@
 package com.org.raymann.geometry;
 
-import com.org.raymann.composite.IntersectionRecord;
+import com.org.raymann.composite.HitRecord;
 import com.org.raymann.mathtools.Constants;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
@@ -12,11 +12,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SphereTest {
     private Sphere sphere;
-    private IntersectionRecord record;
+    private HitRecord record;
 
     @BeforeEach
     void setUp() {
-        record = IntersectionRecord.create();
+        record = HitRecord.create();
         sphere = Sphere.create();
     }
 
@@ -24,43 +24,43 @@ class SphereTest {
     public void givenRayWhenIntersectsSphereThenTwoHitPointsAreCorrect() {
         Ray r = Ray.create(Point3D.create(0.f, 0.f, -5.f), Vector3D.create(0.f, 0.f, 1.f));
         assertTrue(sphere.intersect(r, record));
-        assertEquals(2, record.getTotalIntersections());
-        assertEquals(4.f, record.getFirstIntersection());
-        assertEquals(6.f, record.getSecondIntersection());
+        assertEquals(2, record.getTotalHitPoints());
+        assertEquals(4.f, record.getFirstHitPoint());
+        assertEquals(6.f, record.getSecondHitPoint());
     }
 
     @Test
     public void givenRayWhenIntersectsSphereThenTangentHitPointIsSame() {
         Ray r = Ray.create(Point3D.create(0.f, 1.f, -5.f), Vector3D.create(0.f, 0.f, 1.f));
         assertTrue(sphere.intersect(r, record));
-        assertEquals(2, record.getTotalIntersections());
-        assertEquals(5.f, record.getFirstIntersection());
-        assertEquals(5.f, record.getSecondIntersection());
+        assertEquals(2, record.getTotalHitPoints());
+        assertEquals(5.f, record.getFirstHitPoint());
+        assertEquals(5.f, record.getSecondHitPoint());
     }
 
     @Test
     public void givenRayWhenMissesSphereThenNoIntersectionOccurs() {
         Ray r = Ray.create(Point3D.create(0.f, 2.f, -5.f), Vector3D.create(0.f, 0.f, 1.f));
         assertFalse(sphere.intersect(r, record));
-        assertEquals(0, record.getTotalIntersections());
+        assertEquals(0, record.getTotalHitPoints());
     }
 
     @Test
     public void givenRayInsideSphereWhenIntersectsSphereThenFirstInterBehindOriAndSecondInFront() {
         Ray r = Ray.create(Point3D.create(0.f, 0.f, 0.f), Vector3D.create(0.f, 0.f, 1.f));
         assertTrue(sphere.intersect(r, record));
-        assertEquals(2, record.getTotalIntersections());
-        assertEquals(-1.f, record.getFirstIntersection());
-        assertEquals(1.f, record.getSecondIntersection());
+        assertEquals(2, record.getTotalHitPoints());
+        assertEquals(-1.f, record.getFirstHitPoint());
+        assertEquals(1.f, record.getSecondHitPoint());
     }
 
     @Test
     public void givenSphereBehindOriginWhenRayIntersectsSphereThenNegativeIntersectionsOccur() {
         Ray r = Ray.create(Point3D.create(0.f, 0.f, 5.f), Vector3D.create(0.f, 0.f, 1.f));
         assertTrue(sphere.intersect(r, record));
-        assertEquals(2, record.getTotalIntersections());
-        assertEquals(-6.f, record.getFirstIntersection());
-        assertEquals(-4.f, record.getSecondIntersection());
+        assertEquals(2, record.getTotalHitPoints());
+        assertEquals(-6.f, record.getFirstHitPoint());
+        assertEquals(-4.f, record.getSecondHitPoint());
     }
 
     @Test

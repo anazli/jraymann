@@ -1,6 +1,6 @@
 package com.org.raymann.geometry;
 
-import com.org.raymann.composite.IntersectionRecord;
+import com.org.raymann.composite.HitRecord;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
 import com.org.raymann.mathtools.Vector3D;
@@ -29,36 +29,36 @@ class PlaneTest {
 
     @Test
     public void givenPlaneParallelToRayWhenIntersectionIsTestedThenNoPointsAreFound() {
-        IntersectionRecord record = IntersectionRecord.create();
+        HitRecord record = HitRecord.create();
         Ray r = Ray.create(Point3D.create(0.f, 10.f, 0.f), Vector3D.create(0.f, 0.f, 1.f));
         assertFalse(plane.intersect(r, record));
-        assertEquals(0, record.getTotalIntersections());
+        assertEquals(0, record.getTotalHitPoints());
     }
 
     @Test
     public void givenCoPlanarRayWhenIntersectionIsTestedThenNoPointsAreFound() {
-        IntersectionRecord record = IntersectionRecord.create();
+        HitRecord record = HitRecord.create();
         Ray r = Ray.create(Point3D.create(0.f, 0.f, 0.f), Vector3D.create(0.f, 0.f, 1.f));
         assertFalse(plane.intersect(r, record));
-        assertEquals(0, record.getTotalIntersections());
+        assertEquals(0, record.getTotalHitPoints());
     }
 
     @Test
     public void givenRayAbovePlaneWhenIntersectionIsTestedThenPointIsFound() {
-        IntersectionRecord record = IntersectionRecord.create();
+        HitRecord record = HitRecord.create();
         Ray r = Ray.create(Point3D.create(0.f, 1.f, 0.f), Vector3D.create(0.f, -1.f, 0.f));
         assertTrue(plane.intersect(r, record));
-        assertEquals(1, record.getTotalIntersections());
-        assertEquals(1.f, record.getMinPositiveIntersection());
+        assertEquals(1, record.getTotalHitPoints());
+        assertEquals(1.f, record.getMinPositiveHitPoint());
     }
 
     @Test
     public void givenRayBelowPlaneWhenIntersectionIsTestedThenPointIsFound() {
-        IntersectionRecord record = IntersectionRecord.create();
+        HitRecord record = HitRecord.create();
         Ray r = Ray.create(Point3D.create(0.f, -1.f, 0.f), Vector3D.create(0.f, 1.f, 0.f));
         assertTrue(plane.intersect(r, record));
-        assertEquals(1, record.getTotalIntersections());
-        assertEquals(1.f, record.getMinPositiveIntersection());
+        assertEquals(1, record.getTotalHitPoints());
+        assertEquals(1.f, record.getMinPositiveHitPoint());
     }
 
 }

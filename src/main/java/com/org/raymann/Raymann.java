@@ -1,10 +1,9 @@
 package com.org.raymann;
 
-import com.org.raymann.composite.IntersectionRecord;
+import com.org.raymann.composite.HitRecord;
 import com.org.raymann.composite.SceneElement;
 import com.org.raymann.geometry.GeometricPrimitive;
 import com.org.raymann.geometry.PrimitiveType;
-import com.org.raymann.geometry.Sphere;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
 
@@ -15,7 +14,7 @@ public class Raymann {
     public static void main(String[] args) {
         System.out.println("Raymann!");
         Ray ray = Ray.create();
-        IntersectionRecord record = IntersectionRecord.create();
+        HitRecord record = HitRecord.create();
         SceneElement element =
                 GeometricPrimitive.create(PrimitiveType.SPHERE, Point3D.create(1.f,
                         1.f, 1.f), 1.f);

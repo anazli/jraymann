@@ -1,7 +1,7 @@
 package com.org.raymann.geometry;
 
 import com.org.raymann.acceleration.BoundingBox;
-import com.org.raymann.composite.IntersectionRecord;
+import com.org.raymann.composite.HitRecord;
 import com.org.raymann.composite.SceneElement;
 import com.org.raymann.mathtools.Constants;
 import com.org.raymann.mathtools.Point3D;
@@ -20,12 +20,12 @@ public class Plane extends GeometricPrimitive implements SceneElement {
         return new Plane();
     }
 
-    public boolean intersect(Ray r, IntersectionRecord record) {
+    public boolean intersect(Ray r, HitRecord record) {
         if (Math.abs(r.direction().y()) < Constants.EPSILON) {
             return false;
         }
-        record.setFirstIntersection(-r.origin().y() / r.direction().y());
-        record.setTotalIntersections(1);
+        record.setFirstHitPoint(-r.origin().y() / r.direction().y());
+        record.setTotalHitPoints(1);
         return true;
     }
 

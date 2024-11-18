@@ -1,7 +1,7 @@
 package com.org.raymann.geometry;
 
 import com.org.raymann.acceleration.BoundingBox;
-import com.org.raymann.composite.IntersectionRecord;
+import com.org.raymann.composite.HitRecord;
 import com.org.raymann.composite.SceneElement;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
@@ -14,7 +14,7 @@ public abstract class GeometricPrimitive implements SceneElement {
         boundingBox = box;
     }
 
-    public abstract boolean intersect(Ray r, IntersectionRecord record);
+    public abstract boolean intersect(Ray r, HitRecord record);
 
     public abstract Vector3D normal(Point3D p);
 

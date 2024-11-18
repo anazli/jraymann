@@ -1,7 +1,7 @@
 package com.org.raymann.geometry;
 
 import com.org.raymann.acceleration.BoundingBox;
-import com.org.raymann.composite.IntersectionRecord;
+import com.org.raymann.composite.HitRecord;
 import com.org.raymann.composite.SceneElement;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
@@ -30,16 +30,16 @@ public class Sphere extends GeometricPrimitive implements SceneElement {
         return new Sphere(c, r);
     }
 
-    public boolean intersect(Ray r, IntersectionRecord record) {
+    public boolean intersect(Ray r, HitRecord record) {
         Vector3D centerToOrigin = r.origin().minus(center);
         float a = r.direction().dot(r.direction());
         float b = 2.f * r.direction().dot(centerToOrigin);
         float c = centerToOrigin.dot(centerToOrigin) - radius * radius;
         float discriminant = b * b - 4.f * a * c;
         if (discriminant >= 0.f) {
-            record.setFirstIntersection((float) (-b - Math.sqrt(discriminant)) / (2.f * a));
-            record.setSecondIntersection((float) (-b + Math.sqrt(discriminant)) / (2.f * a));
-            record.setTotalIntersections(2);
+            record.setFirstHitPoint((float) (-b - Math.sqrt(discriminant)) / (2.f * a));
+            record.setSecondHitPoint((float) (-b + Math.sqrt(discriminant)) / (2.f * a));
+            record.setTotalHitPoints(2);
             return true;
         }
         return false;
