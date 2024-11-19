@@ -2,7 +2,7 @@ package com.org.raymann.texture;
 
 import com.org.raymann.color.Color;
 
-public class ConstantTexture extends Texture{
+public class ConstantTexture extends Texture {
 
     public ConstantTexture() {
         super(Color.create());

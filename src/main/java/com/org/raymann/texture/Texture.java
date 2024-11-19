@@ -12,7 +12,8 @@ public abstract class Texture {
     public static Texture create(TextureType type, Color c) {
         Texture texture = null;
         switch (type) {
-            case CONSTANT_TEXTURE: texture = ConstantTexture.create(c);
+            case CONSTANT_TEXTURE:
+                texture = ConstantTexture.create(c);
         }
         return texture;
     }
