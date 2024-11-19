@@ -1,5 +1,6 @@
 package com.org.raymann.materials;
 
+import com.org.raymann.color.Color;
 import com.org.raymann.composite.HitRecord;
 import com.org.raymann.mathtools.Ray;
 import com.org.raymann.mathtools.Vector3D;
@@ -17,7 +18,8 @@ public abstract class Material {
         return material;
     }
 
-    public abstract boolean scatter(Ray ray, HitRecord record, Vector3D attenuation);
+    public abstract boolean scatter(Ray ray, HitRecord record,
+                                    Color attenuation);
 
     protected Material(Texture t) {
         texture = t;

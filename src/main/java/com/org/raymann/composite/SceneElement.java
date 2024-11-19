@@ -7,5 +7,6 @@ import com.org.raymann.mathtools.Vector3D;
 
 public interface SceneElement {
     boolean intersect(Ray r, HitRecord record);
+
     Vector3D normal(Point3D p);
 }

@@ -1,9 +1,15 @@
 package com.org.raymann.composite;
 
+import com.org.raymann.mathtools.Point3D;
+import com.org.raymann.mathtools.Ray;
+import com.org.raymann.mathtools.Vector3D;
+
 public class HitRecord {
     private float firstHitPoint;
     private float secondHitPoint;
     private int totalHitPoints;
+    private Ray scatteredRay;
+    private Vector3D normalAtHitPoint;
 
     public HitRecord() {
         firstHitPoint = secondHitPoint = 0.f;
@@ -46,5 +52,25 @@ public class HitRecord {
             return Math.min(firstHitPoint, secondHitPoint);
         }
         return -1.f;
+    }
+
+    public Point3D hitPoint(Ray ray) {
+        return ray.position(getMinPositiveHitPoint());
+    }
+
+    public void setScatteredRay(Ray ray) {
+        scatteredRay = ray;
+    }
+
+    public Ray getScatteredRay() {
+        return scatteredRay;
+    }
+
+    public void setNormalAtHitPoint(Vector3D n) {
+        normalAtHitPoint = n;
+    }
+
+    public Vector3D getNormalAtHitPoint() {
+        return normalAtHitPoint;
     }
 }
