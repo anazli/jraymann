@@ -7,6 +7,7 @@ import com.org.raymann.materials.Material;
 import com.org.raymann.mathtools.Point3D;
 import com.org.raymann.mathtools.Ray;
 import com.org.raymann.mathtools.Vector3D;
+import com.org.raymann.renderers.Renderer;
 
 public abstract class GeometricPrimitive implements SceneElement {
     private final BoundingBox boundingBox;
@@ -28,6 +29,18 @@ public abstract class GeometricPrimitive implements SceneElement {
                 primitive = Sphere.create();//TODO:to be replaced by a default
         }
         return primitive;
+    }
+
+    public void add(SceneElement element) {
+
+    }
+
+    public boolean isWorld() {
+        return false;
+    }
+
+    public void accept(Renderer renderer, Ray ray) {
+
     }
 
     public abstract boolean intersect(Ray r, HitRecord record);

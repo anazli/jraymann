@@ -8,11 +8,13 @@ public class HitRecord {
     private float firstHitPoint;
     private float secondHitPoint;
     private int totalHitPoints;
-    private Ray scatteredRay;
-    private Vector3D normalAtHitPoint;
+    private Ray scatteredRay = null;
+    private Vector3D normalAtHitPoint = null;
+    private SceneElement hitElement = null;
 
     public HitRecord() {
         firstHitPoint = secondHitPoint = 0.f;
+        totalHitPoints = 0;
     }
 
     public static HitRecord create() {
@@ -72,5 +74,13 @@ public class HitRecord {
 
     public Vector3D getNormalAtHitPoint() {
         return normalAtHitPoint;
+    }
+
+    public void setHitElement(SceneElement element) {
+        hitElement = element;
+    }
+
+    public SceneElement getHitElement() {
+        return hitElement;
     }
 }
